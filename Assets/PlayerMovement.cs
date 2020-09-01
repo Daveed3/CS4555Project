@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
+    public GameObject playerBody;
+
+    public float originalPlayerHeight = 3.8f;
+    public float crouchedHeight = 2.0f;
 
     public float movementSpeed = 12f;
     public float gravity = -9.81f * 2;
@@ -17,6 +21,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
 
     private bool isGrounded;
+    private bool isCrouched = false;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,9 +42,9 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = controller.transform.right * x + controller.transform.forward * z;
 
-        // framerate independent
+        // frame rate independent
         controller.Move(move * movementSpeed * Time.deltaTime);
 
         // jumping
@@ -42,8 +53,34 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
+
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if(Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched)
+        {
+            Crouch();
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            ResetHeight();
+        }
+    }
+
+    // reduce height
+    void Crouch()
+    {
+        controller.height = crouchedHeight;
+        playerBody.transform.localScale -= new Vector3(0, 0.52f, 0);
+        isCrouched = true;
+    }
+
+    // reset height
+    void ResetHeight()
+    {
+        controller.height = originalPlayerHeight;
+        playerBody.transform.localScale += new Vector3(0, 0.52f, 0);
+        isCrouched = false;
     }
 }
