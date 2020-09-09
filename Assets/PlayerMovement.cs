@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float originalPlayerHeight = 3.8f;
     public float crouchedHeight = 2.0f;
+    public float proneHeight = 0.75f;
 
     public float movementSpeed = 12f;
     public float gravity = -9.81f * 2;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
     private bool isCrouched = false;
+    private bool isProne = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,13 +64,22 @@ public class PlayerMovement : MonoBehaviour
         {
             Crouch();
         }
-        else if (Input.GetKeyDown(KeyCode.LeftControl))
+        else if(Input.GetKeyDown(KeyCode.LeftControl) && isCrouched)
+        {
+            ResetHeight();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Z) && !isProne)
+        {
+            Prone();
+        }
+        else if(Input.GetKeyDown(KeyCode.Z) && isProne)
         {
             ResetHeight();
         }
     }
 
-    // reduce height
+    // reduce height to crouching height
     void Crouch()
     {
         controller.height = crouchedHeight;
@@ -76,11 +87,33 @@ public class PlayerMovement : MonoBehaviour
         isCrouched = true;
     }
 
+    // reduce height to crawling height
+    void Prone()
+    {
+        controller.height = proneHeight;
+        playerBody.transform.localScale -= new Vector3(0, 0.85f, 0);
+        playerBody.transform.position -= new Vector3(0, 0.85f, 0);
+
+        //  playerBody.transform.localScale += new Vector3(0, 0, 1.2f);
+        isProne = true;
+    }
+
     // reset height
     void ResetHeight()
     {
         controller.height = originalPlayerHeight;
-        playerBody.transform.localScale += new Vector3(0, 0.52f, 0);
-        isCrouched = false;
+
+        if(isCrouched)
+        {
+            playerBody.transform.localScale += new Vector3(0, 0.52f, 0);
+            isCrouched = false;
+        }
+        else if(isProne)
+        {
+            playerBody.transform.localScale += new Vector3(0, 0.85f, 0);
+            playerBody.transform.position += new Vector3(0, 0.85f, 0);
+            // playerBody.transform.localScale -= new Vector3(0, 0, 1.2f);
+            isProne = false;
+        }
     }
 }
