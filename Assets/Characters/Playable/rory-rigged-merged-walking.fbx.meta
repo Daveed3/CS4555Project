@@ -18,7 +18,15 @@ ModelImporter:
   - first:
       74: -499311034213491750
     second: Armature|Idle Handgun
-  externalObjects: {}
+  - first:
+      74: 176180338293591505
+    second: Armature|Walk Handgun
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryEye
+    second: {instanceID: 0}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -33,10 +41,60 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature|Walk' has import animation warnings
+    animationImportWarnings: "\nClip 'Walk Handgun.001' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Action' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
+      animation that will be discarded.\n\t'Thumb000.L' has translation animation
+      that will be discarded.\n\t'Finger040.L' has translation animation that will
+      be discarded.\n\t'Shoulder.R.001' has translation animation that will be discarded.\n\t'Thumb000.R'
+      has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.L' has scale animation that
+      will be discarded.\n\t'Foot.L' has scale animation that will be discarded.\n\t'Toes.L'
+      has scale animation that will be discarded.\n\t'Foot.R' has scale animation
+      that will be discarded.\n\nClip 'Armature|Action.001' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Upper Leg.L'
+      has translation animation that will be discarded.\n\t'Upper Leg.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Idle Handgun 2' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
+      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
+      animation that will be discarded.\n\t'Finger040.L' has translation animation
+      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
+      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\t'Upper
+      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.L' has
+      scale animation that will be discarded.\n\t'Foot.L' has scale animation that
+      will be discarded.\n\t'Toes.L' has scale animation that will be discarded.\n\t'Foot.R'
+      has scale animation that will be discarded.\n\nClip 'Armature|NULL' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
+      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
+      animation that will be discarded.\n\t'Finger040.L' has translation animation
+      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
+      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\t'Upper
+      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.L' has
+      scale animation that will be discarded.\n\t'Foot.L' has scale animation that
+      will be discarded.\n\t'Toes.L' has scale animation that will be discarded.\n\t'Foot.R'
+      has scale animation that will be discarded.\n\nClip 'Armature|Walk' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Upper Leg.L'
+      has translation animation that will be discarded.\n\t'Upper Leg.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Walk Handgun' has import
+      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
+      has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
       animation that will be discarded.\n\t'Upper Leg.R' has translation animation
       that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -150,7 +208,36 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Walk Handgun
+      takeName: Armature|Walk Handgun
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

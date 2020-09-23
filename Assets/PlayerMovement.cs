@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float crouchedHeight = 2.0f;
     public float proneHeight = 0.75f;
 
-    public float movementSpeed = 12f;
+    public float movementSpeed = 5f;
     public float gravity = -9.81f * 2;
     public float jumpHeight = 3f;
 
@@ -26,6 +26,13 @@ public class PlayerMovement : MonoBehaviour
     private bool isCrouched = false;
     private bool isProne = false;
 
+    public Inventory Inventory;
+
+    public HUD Hud;
+
+    private IInventoryItem itemToPickup = null;
+    public GameObject Hand;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +43,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
+        {
+            //Inventory.AddItem(itemToPickup);
+            //itemToPickup.OnPickup();
+            GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
+            inventoryItem.transform.parent = Hand.transform;
+            inventoryItem.transform.localPosition = (itemToPickup as InventoryItem).PickupPosition;
+            inventoryItem.transform.localEulerAngles = (itemToPickup as InventoryItem).PickupRotation;
+
+            Hud.CloseMessagePanel();
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -127,4 +146,49 @@ public class PlayerMovement : MonoBehaviour
             isProne = false;
         }
     }
+
+
+    /*private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        if(item != null)
+        {
+            Inventory.AddItem(item);
+        }
+    }*/
+
+    private void OnTriggerEnter(Collider other)
+    {
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            itemToPickup = item;
+            Hud.OpenMessagePanel("");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        IInventoryItem item = other.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            Hud.CloseMessagePanel();
+            itemToPickup = null;
+        }
+    }
+
+    /*private void InventoryItemUsed(object sender, InventoryEventArgs e)
+    {
+        IInventoryItem item = e.Item;
+
+        GameObject inventoryItem = (item as MonoBehaviour).gameObject;
+        inventoryItem.SetActive(true);
+
+        inventoryItem.transform.localPosition = (item as InventoryItem).PickupPosition;
+        inventoryItem.transform.localEulerAngles = (item as InventoryItem).PickupRotation;
+
+    }*/
+
+
+
 }
