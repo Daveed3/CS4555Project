@@ -21,12 +21,70 @@ ModelImporter:
   - first:
       74: 176180338293591505
     second: Armature|Walk Handgun
+  - first:
+      74: 5115645272596113698
+    second: Armature|Walk Handgun.001
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 5d1221c480f03134f92aa7b0e4ecbf9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: RoryEye
-    second: {instanceID: 0}
+    second: {fileID: 2100000, guid: b7b847b7dcbc9c043aa2271c7c6a51ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryEyeref
+    second: {fileID: 2100000, guid: 31f8d070d1b472d44a4eae1a0e771d16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryHair
+    second: {fileID: 2100000, guid: 6576b804936a5b94aa7bf2bee673da1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryHands
+    second: {fileID: 2100000, guid: 39e00f73c575e944e893c3bc5b1ab13d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryHead
+    second: {fileID: 2100000, guid: 39e00f73c575e944e893c3bc5b1ab13d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryJacket.001
+    second: {fileID: 2100000, guid: 4c6a22dcdfdf4ee4a92d7726c1e392cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryPants.005
+    second: {fileID: 2100000, guid: cc05b82c5b366b841a5aa6bd6abfe54e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryShirt.013
+    second: {fileID: 2100000, guid: 6d1f22de6ee9c464e8dd43b13b2b5e30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryTeeth
+    second: {fileID: 2100000, guid: 228fbbe23ce771b4a8790a3f77b59bcd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryTongue
+    second: {fileID: 2100000, guid: b86760de5fbbe9d4da1ecc63eb351c15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RoryWatchRing
+    second: {fileID: 2100000, guid: 1397d84827f797744acc02d89a199a39, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -47,54 +105,132 @@ ModelImporter:
       and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
       animation that will be discarded.\n\t'Upper Leg.L' has translation animation
       that will be discarded.\n\t'Upper Leg.R' has translation animation that will
-      be discarded.\n\nClip 'Armature|Action' has import animation warnings that
+      be discarded.\n\nClip 'Walk Handgun.004' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
       to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
       and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
-      animation that will be discarded.\n\t'Thumb000.L' has translation animation
-      that will be discarded.\n\t'Finger040.L' has translation animation that will
-      be discarded.\n\t'Shoulder.R.001' has translation animation that will be discarded.\n\t'Thumb000.R'
+      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Walk Handgun.005' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Walk.002' has import animation warnings that might lower
+      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
+      quality.\n\t'Chest' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'Upper Leg.L' has translation animation that will
+      be discarded.\n\t'Upper Leg.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Action' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Shoulder.L'
+      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
+      animation that will be discarded.\n\t'Finger040.L' has translation animation
+      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
+      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Action.001' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Chest'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Upper
+      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.R' has
+      translation animation that will be discarded.\n\nClip 'Armature|Idle Handgun
+      2' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Shoulder.L'
+      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
+      animation that will be discarded.\n\t'Finger040.L' has translation animation
+      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
+      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\nClip
+      'Armature|NULL' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Shoulder.L'
+      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
+      animation that will be discarded.\n\t'Finger040.L' has translation animation
+      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
+      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Walk' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Chest'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Upper
+      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.R' has
+      translation animation that will be discarded.\n\nClip 'Armature|Walk Handgun'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Chest'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
       has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.L' has scale animation that
-      will be discarded.\n\t'Foot.L' has scale animation that will be discarded.\n\t'Toes.L'
-      has scale animation that will be discarded.\n\t'Foot.R' has scale animation
-      that will be discarded.\n\nClip 'Armature|Action.001' has import animation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk Handgun.001' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
       DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Upper Leg.L'
-      has translation animation that will be discarded.\n\t'Upper Leg.R' has translation
-      animation that will be discarded.\n\nClip 'Armature|Idle Handgun 2' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
       transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
-      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
-      animation that will be discarded.\n\t'Finger040.L' has translation animation
-      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
-      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\t'Upper
-      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.L' has
-      scale animation that will be discarded.\n\t'Foot.L' has scale animation that
-      will be discarded.\n\t'Toes.L' has scale animation that will be discarded.\n\t'Foot.R'
-      has scale animation that will be discarded.\n\nClip 'Armature|NULL' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
-      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
-      animation that will be discarded.\n\t'Finger040.L' has translation animation
-      that will be discarded.\n\t'Shoulder.R.001' has translation animation that
-      will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\t'Upper
-      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.L' has
-      scale animation that will be discarded.\n\t'Foot.L' has scale animation that
-      will be discarded.\n\t'Toes.L' has scale animation that will be discarded.\n\t'Foot.R'
-      has scale animation that will be discarded.\n\nClip 'Armature|Walk' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Upper Leg.L'
-      has translation animation that will be discarded.\n\t'Upper Leg.R' has translation
-      animation that will be discarded.\n\nClip 'Armature|Walk Handgun' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
+      has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk Handgun.002' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
       DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
       transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
       has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.001' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.002' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.003' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.004' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.005' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.006' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.007' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.008' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.009' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.010' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.011' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.012' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Armature|Walk.013' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
       animation that will be discarded.\n\t'Upper Leg.R' has translation animation
       that will be discarded.\n"
     animationRetargetingWarnings: 
@@ -197,11 +333,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Idle Handgun
-      takeName: Armature|Idle Handgun
+      name: Armature|Walk Handgun
+      takeName: Armature|Walk Handgun
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -226,11 +362,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Walk Handgun
-      takeName: Armature|Walk Handgun
+      name: Armature|Idle Handgun
+      takeName: Armature|Idle Handgun
       internalID: 0
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
