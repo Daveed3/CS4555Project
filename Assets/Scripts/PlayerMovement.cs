@@ -107,6 +107,13 @@ public class PlayerMovement : MonoBehaviour
         {
             ResetHeight();
         }
+        
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            Run();
+        } else if (Input.GetKeyUp(KeyCode.LeftShift)){
+            movementSpeed = movementSpeed / 2;
+        }
+
     }
 
     // reduce height to crouching height
@@ -145,6 +152,11 @@ public class PlayerMovement : MonoBehaviour
             // playerBody.transform.localScale -= new Vector3(0, 0, 1.2f);
             isProne = false;
         }
+    }
+
+    // run speed
+    void Run() {
+        movementSpeed = movementSpeed * 2 ;
     }
 
 
