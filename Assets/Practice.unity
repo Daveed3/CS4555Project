@@ -579,23 +579,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70b8a2e0d8071e4e90ca0178ef6ff03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  playerBody: {fileID: 0}
-  animator: {fileID: 0}
+  controller: {fileID: 535993482}
+  playerBody: {fileID: 535993481}
+  animator: {fileID: 650098397}
   originalPlayerHeight: 3.8
   crouchedHeight: 2
   proneHeight: 0.75
   movementSpeed: 5
   gravity: -19.62
   jumpHeight: 3
-  groundCheck: {fileID: 1798390}
+  groundCheck: {fileID: 558456737}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   Inventory: {fileID: 0}
-  Hud: {fileID: 0}
-  Hand: {fileID: 0}
+  Hud: {fileID: 636535010}
+  Hand: {fileID: 1818867975}
 --- !u!95 &535993485
 Animator:
   serializedVersion: 3
@@ -1568,6 +1568,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4291396758364058233, guid: 93776f12a0a4d774f912d13bd9d26092,
     type: 3}
   m_PrefabInstance: {fileID: 8556619841360168412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1818867975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2561292840545553909, guid: 0df0c9a52ef1fb942a3010debfb3b888,
+    type: 3}
+  m_PrefabInstance: {fileID: 1915060060}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1864478023
 GameObject:
