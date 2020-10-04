@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 47
+  controlID: 59
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 52
+  controlID: 60
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 53
+  controlID: 61
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -338,20 +338,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Objects/Characters/Playable
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Objects/Characters/Playable
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Daveeed\Desktop\Fall 2020\CS 4555 - 01 -- TuTh 9;25-10;40\CS4555Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 15}
-    m_SelectedIDs: 70480000
-    m_LastClickedID: 18544
-    m_ExpandedIDs: 000000008c4700008e470000964700009c4700009e4700007048000000ca9a3b
+    m_SelectedIDs: c43c0000
+    m_LastClickedID: 15556
+    m_ExpandedIDs: 00000000643c0000663c0000c43c0000c83c0000ca3c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -379,7 +379,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008c4700008e470000
+    m_ExpandedIDs: 00000000643c0000663c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: da1bffff
-      m_LastClickedID: -58406
-      m_ExpandedIDs: ea26ffff602dffff7e40ffff4447ffff5efbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 82e8ffffb4e8ffffcee8ffffe8e8ffff58e9ffffa6e9ffffc0e9ffffd2edffff42f1ffff5cf1ffff86f1ffff48f5ffff5afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -564,9 +564,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 67.370865, y: -0.15164906, z: 4.245494}
+    m_Target: {x: 64.02881, y: 13.297097, z: 2.6710567}
     speed: 2
-    m_Value: {x: 67.37086, y: -0.15164916, z: 4.245494}
+    m_Value: {x: 64.02881, y: 13.297097, z: 2.6710567}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -612,13 +612,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.17473012, y: 0.7054299, z: -0.18633376, w: -0.6611367}
+    m_Target: {x: 0.0037379274, y: 0.7468109, z: 0.004293776, w: -0.6650007}
     speed: 2
-    m_Value: {x: -0.17445183, y: 0.7064265, z: -0.18659714, w: -0.66008306}
+    m_Value: {x: 0.003744392, y: 0.7458182, z: 0.0042881966, w: -0.6661252}
   m_Size:
-    m_Target: 8.199911
+    m_Target: 13.30725
     speed: 2
-    m_Value: 7.8468046
+    m_Value: 12.734211
   m_Ortho:
     m_Target: 0
     speed: 2
