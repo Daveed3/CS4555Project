@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isCrouched = false;
     private bool isProne = false;
 
+    public LayerMask playerMask;
+
     public Inventory Inventory;
 
     public HUD Hud;
