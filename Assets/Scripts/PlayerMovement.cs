@@ -110,6 +110,12 @@ namespace Assets.Scripts
             {
                 ResetHeight();
             }
+
+                    if (Input.GetKeyDown(KeyCode.LeftShift)) {
+                        Run();
+                    } else if (Input.GetKeyUp(KeyCode.LeftShift)){
+                        movementSpeed = movementSpeed / 2;
+                    }
         }
 
         // reduce height to crouching height
@@ -149,6 +155,11 @@ namespace Assets.Scripts
                 isProne = false;
             }
         }
+
+            // run speed
+            void Run() {
+                movementSpeed = movementSpeed * 2 ;
+            }
 
 
         /*private void OnControllerColliderHit(ControllerColliderHit hit)
