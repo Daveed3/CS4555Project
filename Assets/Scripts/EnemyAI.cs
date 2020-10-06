@@ -20,13 +20,15 @@ namespace Assets.Scripts
         public float attackRange;
         public bool isInAttackRange;
         public int health;
+        bool hasSpawned = false;
 
-        private void Start()
+        IEnumerator Start()
         {
             animator = GetComponent<Animator>();
             animator.SetInteger("HasSpawned", 1);
             animator.SetInteger("IsIdle", 1);
-
+            yield return new WaitForSeconds(3);
+            hasSpawned = true;
         }
 
         private void Awake()
@@ -82,14 +84,17 @@ namespace Assets.Scripts
 
         // Update is called once per frame
         void Update()
-        {
-            isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
-
-            ChaseTarget();
-
-            if (isInAttackRange)
+        {           
+            if (hasSpawned)
             {
-                AttackTarget();
+                isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
+
+                ChaseTarget();
+
+                if (isInAttackRange)
+                {
+                    AttackTarget();
+                }
             }
         }
     }
