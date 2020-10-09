@@ -21,11 +21,17 @@ namespace Assets.Scripts
         public bool isInAttackRange;
         public int health;
 
+        public Material[] material;
+        Renderer rend;
+
         private void Start()
         {
             animator = GetComponent<Animator>();
             animator.SetInteger("HasSpawned", 1);
             animator.SetInteger("IsIdle", 1);
+            rend = GetComponent<Renderer>();
+            rend.enabled = true;
+            rend.sharedMaterial = material[0];
 
         }
 
@@ -52,7 +58,7 @@ namespace Assets.Scripts
             if (!hasAttacked)
             {
                 //Attack code here (i.e. scratches)
-                Debug.Log("Attacked");
+                // Debug.Log("Attacked");
                 //animator.SetInteger("EnemyHasAttacked", 1);
                 hasAttacked = true;
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -70,9 +76,14 @@ namespace Assets.Scripts
 
         public void TakeDamage(int damage)
         {
+            // Debug.Log("Took damage");
             health -= damage;
+            rend.sharedMaterial = material[1];
 
-            if (health <= 0) Invoke(nameof(DestroyEnemy), 5f);
+            if (health <= 0) {
+                health = 0;
+                Invoke(nameof(DestroyEnemy), .01f);
+            }
         }
 
         private void DestroyEnemy()
@@ -91,6 +102,7 @@ namespace Assets.Scripts
             {
                 AttackTarget();
             }
+
         }
     }
 }
