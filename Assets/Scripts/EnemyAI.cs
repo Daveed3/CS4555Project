@@ -21,20 +21,23 @@ namespace Assets.Scripts
         public bool isInAttackRange;
         public int health;
 
+        public GameObject childMesh;
         public Material[] material;
         Renderer rend;
 
         private bool isDead = false;
+        bool hasSpawned = false;
 
-        private void Start()
+        IEnumerator Start()
         {
             animator = GetComponent<Animator>();
             animator.SetInteger("HasSpawned", 1);
             animator.SetInteger("IsIdle", 1);
-            //rend = GetComponent<Renderer>();
-            //rend.enabled = true;
-            //rend.sharedMaterial = material[0];
-
+            rend = childMesh.GetComponent<Renderer>();
+            rend.enabled = true;
+            rend.material = material[0];
+            yield return new WaitForSeconds(3);
+            hasSpawned = true;
         }
 
         private void Awake()
@@ -78,9 +81,9 @@ namespace Assets.Scripts
 
         public void TakeDamage(int damage)
         {
-            // Debug.Log("Took damage");
+            Debug.Log("Alien took damage");
             health -= damage;
-            //rend.sharedMaterial = material[1];
+            rend.material = material[1];
 
             if (health <= 0) {
                 isDead = true;
@@ -88,7 +91,7 @@ namespace Assets.Scripts
                 Debug.Log("alien is dead");
                 animator.SetInteger("IsWalking", 0);
                 animator.SetInteger("IsDead", 1);
-                Invoke(nameof(DestroyEnemy), 20f);
+                Invoke(nameof(DestroyEnemy), 10f);
             }
         }
 
@@ -100,7 +103,7 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
-            if (!isDead)
+            if (!isDead && hasSpawned)
             {
                 isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 

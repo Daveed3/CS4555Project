@@ -60,6 +60,8 @@ namespace Assets.Scripts
             {
                 //Inventory.AddItem(itemToPickup);
                 //itemToPickup.OnPickup();
+                animator.SetInteger("HoldingHandgun", 1);
+                Debug.Log("holding handgun");
                 GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
                 inventoryItem.transform.parent = Hand.transform;
                 inventoryItem.transform.localPosition = (itemToPickup as InventoryItem).PickupPosition;
@@ -77,10 +79,12 @@ namespace Assets.Scripts
 
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
             {
+                Debug.Log("walking");
                 animator.SetInteger("condition", 1);
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
             {
+                Debug.Log("idle");
                 animator.SetInteger("condition", 0);
             }
 
@@ -121,11 +125,16 @@ namespace Assets.Scripts
                 ResetHeight();
             }
 
-                    if (Input.GetKeyDown(KeyCode.LeftShift)) {
-                        Run();
-                    } else if (Input.GetKeyUp(KeyCode.LeftShift)){
-                        movementSpeed = movementSpeed / 2;
-                    }
+            if (Input.GetKeyDown(KeyCode.LeftShift)) {
+                Run();
+                Debug.Log("running");
+                animator.SetInteger("IsRunning", 1);
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift)){
+                movementSpeed = movementSpeed / 2;
+                Debug.Log("not running");
+                animator.SetInteger("IsRunning", 0);
+            }
         }
 
         // reduce height to crouching height
