@@ -20,15 +20,21 @@ namespace Assets.Scripts
         public float attackRange;
         public bool isInAttackRange;
         public int health;
-        bool hasSpawned = false;
 
-        IEnumerator Start()
+        public Material[] material;
+        Renderer rend;
+
+        private bool isDead = false;
+
+        private void Start()
         {
             animator = GetComponent<Animator>();
             animator.SetInteger("HasSpawned", 1);
             animator.SetInteger("IsIdle", 1);
-            yield return new WaitForSeconds(3);
-            hasSpawned = true;
+            //rend = GetComponent<Renderer>();
+            //rend.enabled = true;
+            //rend.sharedMaterial = material[0];
+
         }
 
         private void Awake()
@@ -54,7 +60,7 @@ namespace Assets.Scripts
             if (!hasAttacked)
             {
                 //Attack code here (i.e. scratches)
-                Debug.Log("Attacked");
+                // Debug.Log("Attacked");
                 //animator.SetInteger("EnemyHasAttacked", 1);
                 hasAttacked = true;
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -72,9 +78,18 @@ namespace Assets.Scripts
 
         public void TakeDamage(int damage)
         {
+            // Debug.Log("Took damage");
             health -= damage;
+            //rend.sharedMaterial = material[1];
 
-            if (health <= 0) Invoke(nameof(DestroyEnemy), 5f);
+            if (health <= 0) {
+                isDead = true;
+                health = 0;
+                Debug.Log("alien is dead");
+                animator.SetInteger("IsWalking", 0);
+                animator.SetInteger("IsDead", 1);
+                Invoke(nameof(DestroyEnemy), 20f);
+            }
         }
 
         private void DestroyEnemy()
@@ -84,8 +99,8 @@ namespace Assets.Scripts
 
         // Update is called once per frame
         void Update()
-        {           
-            if (hasSpawned)
+        {
+            if (!isDead)
             {
                 isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 

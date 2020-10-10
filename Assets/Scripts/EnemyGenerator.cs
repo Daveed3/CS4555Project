@@ -51,7 +51,7 @@ namespace Assets.Scripts
             while (enemyCount < spawnLimit)
             {
                 EnemySpawnLocation spawnPosition = enemySpawns[random.Next(enemySpawns.Count)];
-                Debug.Log(spawnPosition.X + " " + spawnPosition.Y + " " + spawnPosition.Z);
+                // Debug.Log(spawnPosition.X + " " + spawnPosition.Y + " " + spawnPosition.Z);
                 GameObject newEnemy = Instantiate(enemies[random.Next(enemies.Count)]);
                 newEnemy.transform.SetParent(parent.transform);
                 newEnemy.transform.position = new Vector3(spawnPosition.X, spawnPosition.Y, spawnPosition.Z); // TODO: Need to figure out why position coords are displayed as *10^-1
@@ -60,7 +60,7 @@ namespace Assets.Scripts
                 Animator animator = newEnemy.GetComponent<Animator>();
                 animator.SetInteger("HasSpawned", 1);
                 enemyCount += 1;
-                Debug.Log("enemy count" + enemyCount);
+                // Debug.Log("enemy count" + enemyCount);
                 yield return new WaitForSeconds(spawnTime);
             }
         }
