@@ -36,12 +36,22 @@ namespace Assets.Scripts
         private IInventoryItem itemToPickup = null;
         public GameObject Hand;
 
+        /*public GameObject cam;
+        public Transform head;
+        public Transform headLock;
+        public Vector3 headOffset;*/
+
         // Start is called before the first frame update
         void Start()
         {
             controller = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
         }
+
+        /*private void LateUpdate()
+        {
+            head.transform.rotation = cam.transform.rotation * Quaternion.Euler(headOffset);
+        }*/
 
         // Update is called once per frame
         void Update()

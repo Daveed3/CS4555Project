@@ -101,36 +101,30 @@ ModelImporter:
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Walk Handgun.001' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
-      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
-      be discarded.\n\nClip 'Walk Handgun.004' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
-      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
-      be discarded.\n\nClip 'Walk Handgun.005' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Shoulder.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
-      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
-      be discarded.\n\nClip 'Walk.002' has import animation warnings that might lower
-      retargeting quality:\nNote: Activate translation DOF on avatar to improve retargeting
-      quality.\n\t'Chest' is inbetween humanoid transforms and has rotation animation
-      that will be discarded.\n\t'Upper Leg.L' has translation animation that will
-      be discarded.\n\t'Upper Leg.R' has translation animation that will be discarded.\n\nClip
-      'Armature|Action' has import animation warnings that might lower retargeting
+      to improve retargeting quality.\n\t'Shoulder.L' has translation animation that
+      will be discarded.\n\t'Upper Leg.L' has translation animation that will be
+      discarded.\n\t'Upper Leg.R' has translation animation that will be discarded.\n\nClip
+      'Walk Handgun.004' has import animation warnings that might lower retargeting
       quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Shoulder.L'
-      has translation animation that will be discarded.\n\t'Thumb000.L' has translation
+      has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
+      that will be discarded.\n\nClip 'Walk Handgun.005' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Shoulder.L' has translation animation that
+      will be discarded.\n\t'Upper Leg.L' has translation animation that will be
+      discarded.\n\t'Upper Leg.R' has translation animation that will be discarded.\n\nClip
+      'Walk.002' has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Upper
+      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.R' has
+      translation animation that will be discarded.\n\nClip 'Armature|Action' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Shoulder.L' has
+      translation animation that will be discarded.\n\t'Thumb000.L' has translation
       animation that will be discarded.\n\t'Finger040.L' has translation animation
       that will be discarded.\n\t'Shoulder.R.001' has translation animation that
       will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\nClip
       'Armature|Action.001' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Chest'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Upper
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Upper
       Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.R' has
       translation animation that will be discarded.\n\nClip 'Armature|Idle Handgun
       2' has import animation warnings that might lower retargeting quality:\nNote:
@@ -146,93 +140,75 @@ ModelImporter:
       that will be discarded.\n\t'Shoulder.R.001' has translation animation that
       will be discarded.\n\t'Thumb000.R' has translation animation that will be discarded.\n\nClip
       'Armature|Walk' has import animation warnings that might lower retargeting
-      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Chest'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Upper
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Upper
       Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.R' has
       translation animation that will be discarded.\n\nClip 'Armature|Walk Handgun'
       has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'Chest'
-      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'Shoulder.L'
       has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
       animation that will be discarded.\n\t'Upper Leg.R' has translation animation
       that will be discarded.\n\nClip 'Armature|Walk Handgun.001' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
-      has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk Handgun.002' has import animation
+      DOF on avatar to improve retargeting quality.\n\t'Shoulder.L' has translation
+      animation that will be discarded.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk Handgun.002' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Shoulder.L' has translation animation that
+      will be discarded.\n\t'Upper Leg.L' has translation animation that will be
+      discarded.\n\t'Upper Leg.R' has translation animation that will be discarded.\n\nClip
+      'Armature|Walk.001' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Upper
+      Leg.L' has translation animation that will be discarded.\n\t'Upper Leg.R' has
+      translation animation that will be discarded.\n\nClip 'Armature|Walk.002' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'Upper Leg.L'
+      has translation animation that will be discarded.\n\t'Upper Leg.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Walk.003' has import animation
       warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'Chest' is inbetween humanoid
-      transforms and has rotation animation that will be discarded.\n\t'Shoulder.L'
-      has translation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.001' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.002' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.003' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
+      DOF on avatar to improve retargeting quality.\n\t'Upper Leg.L' has translation
       animation that will be discarded.\n\t'Upper Leg.R' has translation animation
       that will be discarded.\n\nClip 'Armature|Walk.004' has import animation warnings
       that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.005' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.006' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.007' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.008' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.009' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.010' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.011' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.012' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n\nClip 'Armature|Walk.013' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'Upper Leg.L' has translation
-      animation that will be discarded.\n\t'Upper Leg.R' has translation animation
-      that will be discarded.\n"
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.005' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.006' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.007' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.008' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.009' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.010' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.011' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.012' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|Walk.013' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper Leg.L' has translation animation
+      that will be discarded.\n\t'Upper Leg.R' has translation animation that will
+      be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -752,6 +728,14 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: Chest
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: rory-rigged-merged-walking(Clone)
       parentName: 
@@ -801,7 +785,7 @@ ModelImporter:
     - name: Upper Arm.L
       parentName: Shoulder.L
       position: {x: -0.0000000028777867, y: 0.002527183, z: 7.4505804e-11}
-      rotation: {x: -0.06411566, y: -0.0034714793, z: -0.10027383, w: 0.9928858}
+      rotation: {x: -0.064115666, y: -0.0034714795, z: -0.10027384, w: 0.9928859}
       scale: {x: 1.0000013, y: 1.0000005, z: 1.0000002}
     - name: Lower Arm.L
       parentName: Upper Arm.L
@@ -813,51 +797,6 @@ ModelImporter:
       position: {x: -5.3551046e-11, y: 0.005864567, z: 6.705522e-10}
       rotation: {x: 0.030374387, y: -0.00035184523, z: -0.009197942, w: 0.9994962}
       scale: {x: 1.000001, y: 1.0000011, z: 0.9999998}
-    - name: Finger020.L
-      parentName: Hand.L
-      position: {x: 5.0291415e-10, y: 0.0024443106, z: -5.5879353e-11}
-      rotation: {x: 0.012536051, y: -0.0011656589, z: -0.014331256, w: 0.999818}
-      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000002}
-    - name: Finger021.L
-      parentName: Finger020.L
-      position: {x: -2.5145708e-10, y: 0.0007501891, z: 9.313225e-11}
-      rotation: {x: -0.0057841726, y: 0.011392507, z: 0.0339568, w: 0.9993417}
-      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000001}
-    - name: Finger021.L_end
-      parentName: Finger021.L
-      position: {x: -0, y: 0.0015484262, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Thumb000.L
-      parentName: Hand.L
-      position: {x: -0.00038118646, y: 0.00077670143, z: 0.0006203985}
-      rotation: {x: 0.3261901, y: 0.054873355, z: 0.057200488, w: 0.94197506}
-      scale: {x: 1.000001, y: 1.0000004, z: 1.000001}
-    - name: Thumb001.L
-      parentName: Thumb000.L
-      position: {x: 2.0954757e-10, y: 0.0010069847, z: 0}
-      rotation: {x: -0.03732547, y: 0.0034715608, z: 0.001908619, w: 0.99929535}
-      scale: {x: 1.0000008, y: 0.99999917, z: 1.0000013}
-    - name: Thumb001.L_end
-      parentName: Thumb001.L
-      position: {x: -0, y: 0.0012588586, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Finger030.L
-      parentName: Hand.L
-      position: {x: 0.0001683926, y: 0.0024182068, z: -0.0005531626}
-      rotation: {x: 0.0054811384, y: 0.0023697747, z: 0.03191964, w: 0.9994727}
-      scale: {x: 1.0000008, y: 1.0000013, z: 1.0000004}
-    - name: Finger031.L
-      parentName: Finger030.L
-      position: {x: 6.8277584e-10, y: 0.0008714601, z: -2.3283064e-12}
-      rotation: {x: -0.006772774, y: 0.00470588, z: 0.03952939, w: 0.9991844}
-      scale: {x: 1.0000011, y: 1.0000013, z: 0.99999994}
-    - name: Finger031.L_end
-      parentName: Finger031.L
-      position: {x: -0, y: 0.0012263517, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: Finger010.L
       parentName: Hand.L
       position: {x: 0.0001696864, y: 0.0024466428, z: 0.0005755948}
@@ -873,10 +812,40 @@ ModelImporter:
       position: {x: -0, y: 0.0012601216, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: Finger020.L
+      parentName: Hand.L
+      position: {x: 5.0291415e-10, y: 0.0024443106, z: -5.5879353e-11}
+      rotation: {x: 0.012536051, y: -0.0011656589, z: -0.014331256, w: 0.999818}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000002}
+    - name: Finger021.L
+      parentName: Finger020.L
+      position: {x: -2.5145708e-10, y: 0.0007501891, z: 9.313225e-11}
+      rotation: {x: -0.0057841726, y: 0.011392507, z: 0.0339568, w: 0.9993417}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000001}
+    - name: Finger021.L_end
+      parentName: Finger021.L
+      position: {x: -0, y: 0.0015484262, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Finger030.L
+      parentName: Hand.L
+      position: {x: 0.0001683926, y: 0.0024182068, z: -0.0005531626}
+      rotation: {x: 0.005481138, y: 0.0023697747, z: 0.031919636, w: 0.9994727}
+      scale: {x: 1.0000008, y: 1.0000013, z: 1.0000004}
+    - name: Finger031.L
+      parentName: Finger030.L
+      position: {x: 6.8277584e-10, y: 0.0008714601, z: -2.3283064e-12}
+      rotation: {x: -0.006772774, y: 0.00470588, z: 0.03952939, w: 0.9991844}
+      scale: {x: 1.0000011, y: 1.0000013, z: 0.99999994}
+    - name: Finger031.L_end
+      parentName: Finger031.L
+      position: {x: -0, y: 0.0012263517, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Finger040.L
       parentName: Hand.L
       position: {x: 0.00014053217, y: 0.002324239, z: -0.0009651812}
-      rotation: {x: -0.020924842, y: 0.0033544379, z: 0.070352904, w: 0.997297}
+      rotation: {x: -0.020924844, y: 0.003354438, z: 0.07035291, w: 0.99729705}
       scale: {x: 1.0000006, y: 1.0000005, z: 1.0000008}
     - name: Finger041.L
       parentName: Finger040.L
@@ -886,6 +855,21 @@ ModelImporter:
     - name: Finger041.L_end
       parentName: Finger041.L
       position: {x: -0, y: 0.0007901224, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb000.L
+      parentName: Hand.L
+      position: {x: -0.00038118646, y: 0.00077670143, z: 0.0006203985}
+      rotation: {x: 0.32619014, y: 0.054873355, z: 0.05720049, w: 0.94197506}
+      scale: {x: 1.000001, y: 1.0000004, z: 1.000001}
+    - name: Thumb001.L
+      parentName: Thumb000.L
+      position: {x: 2.0954757e-10, y: 0.0010069847, z: 0}
+      rotation: {x: -0.03732547, y: 0.0034715608, z: 0.001908619, w: 0.99929535}
+      scale: {x: 1.0000008, y: 0.99999917, z: 1.0000013}
+    - name: Thumb001.L_end
+      parentName: Thumb001.L
+      position: {x: -0, y: 0.0012588586, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Shoulder.R.001
@@ -908,6 +892,21 @@ ModelImporter:
       position: {x: 4.0978193e-10, y: 0.0058645657, z: 0}
       rotation: {x: 0.03037441, y: 0.0003518465, z: 0.009197941, w: 0.9994962}
       scale: {x: 1, y: 1.0000005, z: 1}
+    - name: Finger010.R
+      parentName: Hand.R
+      position: {x: -0.00016968611, y: 0.0024466445, z: 0.00057559565}
+      rotation: {x: 0.014988316, y: 0.003232207, z: 0.03856204, w: 0.9991386}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000006}
+    - name: Finger011.R
+      parentName: Finger010.R
+      position: {x: 4.4703483e-10, y: 0.0008296099, z: -0.000000002980232}
+      rotation: {x: -0.012456049, y: -0.0056293886, z: -0.03223125, w: 0.999387}
+      scale: {x: 1.0000001, y: 1.0000007, z: 0.9999999}
+    - name: Finger011.R_end
+      parentName: Finger011.R
+      position: {x: -0, y: 0.0012601216, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Finger020.R
       parentName: Hand.R
       position: {x: -0, y: 0.002444313, z: -2.9802322e-10}
@@ -921,21 +920,6 @@ ModelImporter:
     - name: Finger021.R_end
       parentName: Finger021.R
       position: {x: -0, y: 0.0015484262, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Thumb000.R
-      parentName: Hand.R
-      position: {x: 0.00038118675, y: 0.00077670417, z: 0.000620398}
-      rotation: {x: 0.32623807, y: -0.05491044, z: -0.05708748, w: 0.94196314}
-      scale: {x: 1.0000014, y: 1.0000006, z: 1.0000007}
-    - name: Thumb001.R
-      parentName: Thumb000.R
-      position: {x: 2.9802322e-10, y: 0.001006985, z: 3.7252902e-11}
-      rotation: {x: -0.037324756, y: -0.0034716502, z: -0.0019103382, w: 0.9992954}
-      scale: {x: 1.0000008, y: 1, z: 1.0000014}
-    - name: Thumb001.R_end
-      parentName: Thumb001.R
-      position: {x: -0, y: 0.0012588586, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Finger030.R
@@ -953,21 +937,6 @@ ModelImporter:
       position: {x: -0, y: 0.0012263517, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Finger010.R
-      parentName: Hand.R
-      position: {x: -0.00016968611, y: 0.0024466445, z: 0.00057559565}
-      rotation: {x: 0.014988316, y: 0.003232207, z: 0.03856204, w: 0.9991386}
-      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000006}
-    - name: Finger011.R
-      parentName: Finger010.R
-      position: {x: 4.4703483e-10, y: 0.0008296099, z: -0.000000002980232}
-      rotation: {x: -0.012456049, y: -0.0056293886, z: -0.03223125, w: 0.999387}
-      scale: {x: 1.0000001, y: 1.0000007, z: 0.9999999}
-    - name: Finger011.R_end
-      parentName: Finger011.R
-      position: {x: -0, y: 0.0012601216, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: Finger040.R
       parentName: Hand.R
       position: {x: -0.00014053195, y: 0.002324239, z: -0.0009651804}
@@ -981,6 +950,21 @@ ModelImporter:
     - name: Finger041.R_end
       parentName: Finger041.R
       position: {x: -0, y: 0.0007901224, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Thumb000.R
+      parentName: Hand.R
+      position: {x: 0.00038118675, y: 0.00077670417, z: 0.000620398}
+      rotation: {x: 0.3262381, y: -0.054910444, z: -0.057087485, w: 0.9419632}
+      scale: {x: 1.0000014, y: 1.0000006, z: 1.0000007}
+    - name: Thumb001.R
+      parentName: Thumb000.R
+      position: {x: 2.9802322e-10, y: 0.001006985, z: 3.7252902e-11}
+      rotation: {x: -0.037324756, y: -0.0034716502, z: -0.0019103382, w: 0.9992954}
+      scale: {x: 1.0000008, y: 1, z: 1.0000014}
+    - name: Thumb001.R_end
+      parentName: Thumb001.R
+      position: {x: -0, y: 0.0012588586, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Upper Leg.L
@@ -1001,7 +985,7 @@ ModelImporter:
     - name: Toes.L
       parentName: Foot.L
       position: {x: -1.1581505e-10, y: 0.0031279083, z: -3.72529e-10}
-      rotation: {x: -0.010965439, y: -0.9437066, z: -0.32908762, w: -0.031606797}
+      rotation: {x: -0.0109654395, y: -0.9437066, z: -0.32908764, w: -0.031606797}
       scale: {x: 0.9996983, y: 1.0000024, z: 0.9999492}
     - name: Toes.L_end
       parentName: Toes.L
@@ -1036,7 +1020,7 @@ ModelImporter:
     - name: Toes.R
       parentName: Foot.R
       position: {x: -3.23148e-10, y: 0.0031279086, z: -5.1688404e-10}
-      rotation: {x: 0.010950081, y: -0.943708, z: -0.32908818, w: 0.0315628}
+      rotation: {x: 0.010950082, y: -0.94370806, z: -0.3290882, w: 0.031562805}
       scale: {x: 0.9996985, y: 1.0000125, z: 0.9999393}
     - name: Toes.R_end
       parentName: Toes.R
@@ -1046,7 +1030,7 @@ ModelImporter:
     - name: Lower Leg001.R
       parentName: Lower Leg.R
       position: {x: 2.6280758e-10, y: 0.008964291, z: -5.378388e-10}
-      rotation: {x: 0.222114, y: -0.22922914, z: -0.7837016, w: 0.5328519}
+      rotation: {x: 0.22211401, y: -0.22922915, z: -0.78370166, w: 0.53285193}
       scale: {x: 0.999996, y: 0.9999997, z: 1.0000058}
     - name: Lower Leg001.R_end
       parentName: Lower Leg001.R
@@ -1063,16 +1047,6 @@ ModelImporter:
       position: {x: -0, y: 0.003845876, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: Pole Target.L
-      parentName: Armature
-      position: {x: -0.002045643, y: -0.020948105, z: 0.010994858}
-      rotation: {x: 0.27821502, y: -0.0029391053, z: 0.960514, w: 0.0008208603}
-      scale: {x: 1.0018331, y: 1, z: 1.0047048}
-    - name: Pole Target.L_end
-      parentName: Pole Target.L
-      position: {x: -0, y: 0.004131164, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
     - name: Leg IK.R
       parentName: Armature
       position: {x: 0.0023932913, y: 0.00552013, z: 0.0021963832}
@@ -1081,6 +1055,16 @@ ModelImporter:
     - name: Leg IK.R_end
       parentName: Leg IK.R
       position: {x: -0, y: 0.003845876, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Pole Target.L
+      parentName: Armature
+      position: {x: -0.002045643, y: -0.020948105, z: 0.010994858}
+      rotation: {x: 0.27821502, y: -0.0029391053, z: 0.960514, w: 0.0008208603}
+      scale: {x: 1.0018331, y: 1, z: 1.0047048}
+    - name: Pole Target.L_end
+      parentName: Pole Target.L
+      position: {x: -0, y: 0.004131164, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Pole Target.R
@@ -1093,11 +1077,66 @@ ModelImporter:
       position: {x: -0, y: 0.004131164, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-    - name: RoryWatchRing
+    - name: RoryWatchRing.001
       parentName: rory-rigged-merged-walking(Clone)
-      position: {x: -0, y: 0, z: 0}
-      rotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
-      scale: {x: 100, y: 100, z: 100}
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.002
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.003
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.004
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.005
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.006
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.007
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.008
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.009
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.010
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.011
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
+    - name: RoryWatchRing.012
+      parentName: rory-rigged-merged-walking(Clone)
+      position: {x: -0.00005392731, y: 0.0006276048, z: 0.11656609}
+      rotation: {x: 0.00000008146035, y: 0, z: -0, w: 1}
+      scale: {x: 49.24625, y: 49.24625, z: 49.24625}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
