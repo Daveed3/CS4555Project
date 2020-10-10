@@ -24,14 +24,16 @@ namespace Assets.Scripts
         public Material[] material;
         Renderer rend;
 
+        private bool isDead = false;
+
         private void Start()
         {
             animator = GetComponent<Animator>();
             animator.SetInteger("HasSpawned", 1);
             animator.SetInteger("IsIdle", 1);
-            rend = GetComponent<Renderer>();
-            rend.enabled = true;
-            rend.sharedMaterial = material[0];
+            //rend = GetComponent<Renderer>();
+            //rend.enabled = true;
+            //rend.sharedMaterial = material[0];
 
         }
 
@@ -78,11 +80,15 @@ namespace Assets.Scripts
         {
             // Debug.Log("Took damage");
             health -= damage;
-            rend.sharedMaterial = material[1];
+            //rend.sharedMaterial = material[1];
 
             if (health <= 0) {
+                isDead = true;
                 health = 0;
-                Invoke(nameof(DestroyEnemy), .01f);
+                Debug.Log("alien is dead");
+                animator.SetInteger("IsWalking", 0);
+                animator.SetInteger("IsDead", 1);
+                Invoke(nameof(DestroyEnemy), 20f);
             }
         }
 
@@ -94,15 +100,17 @@ namespace Assets.Scripts
         // Update is called once per frame
         void Update()
         {
-            isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
-
-            ChaseTarget();
-
-            if (isInAttackRange)
+            if (!isDead)
             {
-                AttackTarget();
-            }
+                isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
+                ChaseTarget();
+
+                if (isInAttackRange)
+                {
+                    AttackTarget();
+                }
+            }
         }
     }
 }
