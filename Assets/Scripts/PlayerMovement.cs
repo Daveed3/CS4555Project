@@ -9,7 +9,12 @@ namespace Assets.Scripts
     {
         public CharacterController controller;
         public GameObject playerBody;
-        public Animator animator;
+        public Animator armAnimator;
+        public Animator placeholderArmAnimator;
+        public Animator bodyAnimator;
+
+        public GameObject cameraPlayerArms;
+        public GameObject placeHolderPlayerArms;
 
         public float originalPlayerHeight = 3.8f;
         public float crouchedHeight = 2.0f;
@@ -45,7 +50,9 @@ namespace Assets.Scripts
         void Start()
         {
             controller = GetComponent<CharacterController>();
-            animator = GetComponent<Animator>();
+            armAnimator = armAnimator.GetComponent<Animator>();
+            placeholderArmAnimator = placeholderArmAnimator.GetComponent<Animator>();
+            bodyAnimator = bodyAnimator.GetComponent<Animator>();
         }
 
         /*private void LateUpdate()
@@ -58,9 +65,14 @@ namespace Assets.Scripts
         {
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
+                placeHolderPlayerArms.SetActive(false);
+                cameraPlayerArms.SetActive(true);
                 //Inventory.AddItem(itemToPickup);
                 //itemToPickup.OnPickup();
-                animator.SetInteger("HoldingHandgun", 1);
+                armAnimator.SetInteger("HoldingHandgun", 1);
+                placeholderArmAnimator.SetInteger("HoldingHandgun", 1);
+                bodyAnimator.SetInteger("HoldingHandgun", 1);
+
                 Debug.Log("holding handgun");
                 GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
                 inventoryItem.transform.parent = Hand.transform;
@@ -80,12 +92,16 @@ namespace Assets.Scripts
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
             {
                 Debug.Log("walking");
-                animator.SetInteger("condition", 1);
+                armAnimator.SetInteger("condition", 1);
+                placeholderArmAnimator.SetInteger("condition", 1);
+                bodyAnimator.SetInteger("condition", 1);
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
             {
                 Debug.Log("idle");
-                animator.SetInteger("condition", 0);
+                armAnimator.SetInteger("condition", 0);
+                placeholderArmAnimator.SetInteger("condition", 0);
+                bodyAnimator.SetInteger("condition", 0);
             }
 
             float x = Input.GetAxis("Horizontal");
@@ -128,12 +144,16 @@ namespace Assets.Scripts
             if (Input.GetKeyDown(KeyCode.LeftShift)) {
                 Run();
                 Debug.Log("running");
-                animator.SetInteger("IsRunning", 1);
+                armAnimator.SetInteger("IsRunning", 1);
+                placeholderArmAnimator.SetInteger("IsRunning", 1);
+                bodyAnimator.SetInteger("IsRunning", 1);
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift)){
                 movementSpeed = movementSpeed / 2;
                 Debug.Log("not running");
-                animator.SetInteger("IsRunning", 0);
+                armAnimator.SetInteger("IsRunning", 0);
+                placeholderArmAnimator.SetInteger("IsRunning", 0);
+                bodyAnimator.SetInteger("IsRunning", 0);
             }
         }
 

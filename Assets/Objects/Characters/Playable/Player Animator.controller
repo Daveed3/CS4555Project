@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|Walk
+  m_Name: Body|Walk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -23,7 +23,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 8349542763059015795, guid: 0df0c9a52ef1fb942a3010debfb3b888,
+  m_Motion: {fileID: -6109646063464864571, guid: 3ac52650104e9fb4791abbb48e083123,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -135,7 +135,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 176180338293591505, guid: 0df0c9a52ef1fb942a3010debfb3b888, type: 3}
+  m_Motion: {fileID: 7102869437915398214, guid: 3ac52650104e9fb4791abbb48e083123,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -317,19 +318,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: HoldingHandgun
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: IsRunning
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -383,7 +384,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7551964380084998518, guid: 0df0c9a52ef1fb942a3010debfb3b888,
+  m_Motion: {fileID: -1583741951037575100, guid: 3ac52650104e9fb4791abbb48e083123,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -429,7 +430,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6168897443469465509}
-    m_Position: {x: -10, y: 340, z: 0}
+    m_Position: {x: -10, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8674033807692579106}
     m_Position: {x: -150, y: 530, z: 0}
@@ -504,7 +505,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -499311034213491750, guid: 0df0c9a52ef1fb942a3010debfb3b888,
+  m_Motion: {fileID: 7171714738615967152, guid: 3ac52650104e9fb4791abbb48e083123,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -532,7 +533,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6460547135657413390, guid: 0df0c9a52ef1fb942a3010debfb3b888,
+  m_Motion: {fileID: -4832173532037325121, guid: 3ac52650104e9fb4791abbb48e083123,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -571,7 +572,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Armature|Idle
+  m_Name: Body|Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -586,7 +587,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -8945691123924629249, guid: 0df0c9a52ef1fb942a3010debfb3b888,
+  m_Motion: {fileID: 3889634814954103615, guid: 3ac52650104e9fb4791abbb48e083123,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
