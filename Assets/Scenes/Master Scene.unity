@@ -1103,7 +1103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 7b3373950dc50ee4b94e5731f725de85, type: 3}
       propertyPath: m_Name
-      value: hammer
+      value: Hammer
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b3373950dc50ee4b94e5731f725de85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4192,7 +4192,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: f497866cefae3eb468244ab53e6835e7, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1001 &1623604291
 PrefabInstance:
   m_ObjectHideFlags: 0

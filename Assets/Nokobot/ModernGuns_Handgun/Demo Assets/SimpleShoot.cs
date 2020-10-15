@@ -56,5 +56,5 @@ public class SimpleShoot : MonoBehaviour
         Destroy(casing, 1.0f);
     }
 
-
+    
 }
