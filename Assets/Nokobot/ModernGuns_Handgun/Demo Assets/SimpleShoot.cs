@@ -11,12 +11,14 @@ public class SimpleShoot : MonoBehaviour
     public Transform barrelLocation;
     public Transform casingExitLocation;
 
+    public Animator armAnimator;
 
     public float shotPower = 100f;
     GameObject bullet;
 
     void Start()
     {
+        armAnimator = armAnimator.GetComponent<Animator>();
         if (barrelLocation == null)
             barrelLocation = transform;
     }
@@ -25,6 +27,7 @@ public class SimpleShoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            armAnimator.SetTrigger("ShootHandgun");
             GetComponent<Animator>().SetTrigger("Fire");
         }
     }

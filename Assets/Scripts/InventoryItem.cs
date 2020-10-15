@@ -7,8 +7,19 @@ namespace Assets.Scripts
     {
         public Vector3 PickupPosition;
         public Vector3 PickupRotation;
+        public string ItemName;
 
-        public string Name => throw new System.NotImplementedException();
+        public string Name
+        {
+            get
+            {
+                return ItemName;
+            }
+            set
+            {
+                ItemName = value;
+            }
+        }
 
         // Use this for initialization
         void Start()

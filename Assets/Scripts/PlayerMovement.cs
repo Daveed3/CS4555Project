@@ -40,11 +40,10 @@ namespace Assets.Scripts
 
         private IInventoryItem itemToPickup = null;
         public GameObject Hand;
+        public GameObject handgun;
 
-        /*public GameObject cam;
-        public Transform head;
-        public Transform headLock;
-        public Vector3 headOffset;*/
+        private HammerHit hammerScript;
+        private SimpleShoot handgunScript;
 
         // Start is called before the first frame update
         void Start()
@@ -53,31 +52,54 @@ namespace Assets.Scripts
             armAnimator = armAnimator.GetComponent<Animator>();
             placeholderArmAnimator = placeholderArmAnimator.GetComponent<Animator>();
             bodyAnimator = bodyAnimator.GetComponent<Animator>();
+
+            hammerScript = playerBody.GetComponent<HammerHit>();
+            handgunScript = handgun.GetComponent<SimpleShoot>();
         }
 
-        /*private void LateUpdate()
-        {
-            head.transform.rotation = cam.transform.rotation * Quaternion.Euler(headOffset);
-        }*/
-
+      
         // Update is called once per frame
         void Update()
         {
+            
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
-                placeHolderPlayerArms.SetActive(false);
-                cameraPlayerArms.SetActive(true);
-                //Inventory.AddItem(itemToPickup);
-                //itemToPickup.OnPickup();
-                armAnimator.SetInteger("HoldingHandgun", 1);
-                placeholderArmAnimator.SetInteger("HoldingHandgun", 1);
-                bodyAnimator.SetInteger("HoldingHandgun", 1);
+                if(itemToPickup.Name.Equals("handgun"))
+                {
+                    handgunScript.enabled = true;
+                    hammerScript.enabled = false;
 
-                Debug.Log("holding handgun");
+                    placeHolderPlayerArms.SetActive(false);
+                    cameraPlayerArms.SetActive(true);
+                    //Inventory.AddItem(itemToPickup);
+                    //itemToPickup.OnPickup();
+                    armAnimator.SetInteger("HoldingHandgun", 1);
+                    placeholderArmAnimator.SetInteger("HoldingHandgun", 1);
+                    bodyAnimator.SetInteger("HoldingHandgun", 1);
+
+                    Debug.Log("holding handgun");
+                }
+                else if(itemToPickup.Name.Equals("hammer"))
+                {
+                    hammerScript.enabled = true;
+                    handgunScript.enabled = false;
+
+                    placeHolderPlayerArms.SetActive(false);
+                    cameraPlayerArms.SetActive(true);
+                    //Inventory.AddItem(itemToPickup);
+                    //itemToPickup.OnPickup();
+                    armAnimator.SetInteger("HoldingHammer", 1);
+                    placeholderArmAnimator.SetInteger("HoldingHammer", 1);
+                    bodyAnimator.SetInteger("HoldingHammer", 1);
+
+                    Debug.Log("holding hammer");
+                }
+
                 GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
                 inventoryItem.transform.parent = Hand.transform;
                 inventoryItem.transform.localPosition = (itemToPickup as InventoryItem).PickupPosition;
                 inventoryItem.transform.localEulerAngles = (itemToPickup as InventoryItem).PickupRotation;
+
 
                 Hud.CloseMessagePanel();
             }
