@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Runtime.Hosting;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -177,6 +178,8 @@ namespace Assets.Scripts
                 placeholderArmAnimator.SetInteger("IsRunning", 0);
                 bodyAnimator.SetInteger("IsRunning", 0);
             }
+
+
         }
 
         // reduce height to crouching height
