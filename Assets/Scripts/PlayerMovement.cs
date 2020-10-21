@@ -40,6 +40,7 @@ namespace Assets.Scripts
 
         private IInventoryItem itemToPickup = null;
         public GameObject Hand;
+        public GameObject Chest;
         public GameObject handgun;
 
         private HammerHit hammerScript;
@@ -64,42 +65,22 @@ namespace Assets.Scripts
             
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
-                if(itemToPickup.Name.Equals("handgun"))
+                GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
+
+                if (itemToPickup.Name.Equals("handgun"))
                 {
-                    handgunScript.enabled = true;
-                    hammerScript.enabled = false;
-
-                    placeHolderPlayerArms.SetActive(false);
-                    cameraPlayerArms.SetActive(true);
-                    //Inventory.AddItem(itemToPickup);
-                    //itemToPickup.OnPickup();
-                    armAnimator.SetInteger("HoldingHandgun", 1);
-                    placeholderArmAnimator.SetInteger("HoldingHandgun", 1);
-                    bodyAnimator.SetInteger("HoldingHandgun", 1);
-
-                    Debug.Log("holding handgun");
+                    Inventory.AddItem(itemToPickup, 0);                                                
                 }
                 else if(itemToPickup.Name.Equals("hammer"))
                 {
-                    hammerScript.enabled = true;
-                    handgunScript.enabled = false;
-
-                    placeHolderPlayerArms.SetActive(false);
-                    cameraPlayerArms.SetActive(true);
-                    //Inventory.AddItem(itemToPickup);
-                    //itemToPickup.OnPickup();
-                    armAnimator.SetInteger("HoldingHammer", 1);
-                    placeholderArmAnimator.SetInteger("HoldingHammer", 1);
-                    bodyAnimator.SetInteger("HoldingHammer", 1);
-
-                    Debug.Log("holding hammer");
+                    Inventory.AddItem(itemToPickup, 1);
+                }
+                else if(itemToPickup.Name.Equals("flashlight"))
+                {
+                    Inventory.AddItem(itemToPickup, 2);                
                 }
 
-                GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
-                inventoryItem.transform.parent = Hand.transform;
-                inventoryItem.transform.localPosition = (itemToPickup as InventoryItem).PickupPosition;
-                inventoryItem.transform.localEulerAngles = (itemToPickup as InventoryItem).PickupRotation;
-
+                (itemToPickup as InventoryItem).OnPickup();
 
                 Hud.CloseMessagePanel();
             }
@@ -217,20 +198,12 @@ namespace Assets.Scripts
             }
         }
 
-            // run speed
-            void Run() {
-                movementSpeed = movementSpeed * 2 ;
-            }
+        // run speed
+        void Run() {
+            movementSpeed = movementSpeed * 2 ;
+        }
 
 
-        /*private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
-            if(item != null)
-            {
-                Inventory.AddItem(item);
-            }
-        }*/
 
         private void OnTriggerEnter(Collider other)
         {
@@ -251,19 +224,6 @@ namespace Assets.Scripts
                 itemToPickup = null;
             }
         }
-
-        /*private void InventoryItemUsed(object sender, InventoryEventArgs e)
-        {
-            IInventoryItem item = e.Item;
-
-            GameObject inventoryItem = (item as MonoBehaviour).gameObject;
-            inventoryItem.SetActive(true);
-
-            inventoryItem.transform.localPosition = (item as InventoryItem).PickupPosition;
-            inventoryItem.transform.localEulerAngles = (item as InventoryItem).PickupRotation;
-
-        }*/
-
 
 
     }

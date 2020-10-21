@@ -7,7 +7,23 @@ namespace Assets.Scripts
     {
         public Vector3 PickupPosition;
         public Vector3 PickupRotation;
+        public GameObject parent;
         public string ItemName;
+
+        public Sprite spriteImage;
+
+        public Sprite Image
+        {
+            get
+            {
+                return spriteImage;
+            }
+
+            set
+            {
+                spriteImage = value;
+            }
+        }
 
         public string Name
         {
@@ -35,17 +51,20 @@ namespace Assets.Scripts
 
         public virtual void OnUse()
         {
-
+            gameObject.SetActive(true);
+            transform.parent = parent.transform;
+            transform.localPosition = PickupPosition;
+            transform.localEulerAngles = PickupRotation;
         }
 
-        public void OnPickup()
+        public virtual void OnPutAway()
         {
-            transform.localPosition = PickupPosition;
-            transform.localEulerAngles = PickupPosition;
-            gameObject.SetActive(true);
-            Debug.Log("the coords are ");
-            Debug.Log(PickupPosition);
-            Debug.Log(PickupRotation);
+            gameObject.SetActive(false);
+        }
+
+        public virtual void OnPickup()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

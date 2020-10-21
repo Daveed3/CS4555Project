@@ -21,10 +21,6 @@ namespace Assets.Scripts
         public bool isInAttackRange;
         public int health;
 
-        public GameObject childMesh;
-        public Material[] material;
-        Renderer rend;
-
         private bool isDead = false;
         bool hasSpawned = false;
 
@@ -33,9 +29,7 @@ namespace Assets.Scripts
             animator = GetComponent<Animator>();
             animator.SetInteger("HasSpawned", 1);
             animator.SetInteger("IsIdle", 1);
-            rend = childMesh.GetComponent<Renderer>();
-            rend.enabled = true;
-            rend.material = material[0];
+           
             yield return new WaitForSeconds(3);
             hasSpawned = true;
         }
@@ -83,7 +77,6 @@ namespace Assets.Scripts
         {
             Debug.Log("Alien took damage");
             health -= damage;
-            rend.material = material[1];
 
             if (health <= 0) {
                 isDead = true;
