@@ -25,9 +25,17 @@ namespace Assets.Scripts
                 Debug.Log("pressed 1");
                 if (inventory.Items[0] != null)
                 {
-                    activeItem?.OnPutAway();
-                    activeItem = inventory.Items[0] as InventoryItem;
-                    (inventory.Items[0] as InventoryItem).OnUse();
+                    if (activeItem?.Equals(inventory.Items[0] as InventoryItem) == true)
+                    {
+                        activeItem?.OnPutAway();
+                        activeItem = null;
+                    }
+                    else
+                    {
+                        activeItem?.OnPutAway();
+                        activeItem = inventory.Items[0] as InventoryItem;
+                        (inventory.Items[0] as InventoryItem).OnUse();
+                    }
                 }
             }
             else if(Input.GetKey(KeyCode.Alpha2))
@@ -35,19 +43,26 @@ namespace Assets.Scripts
                 Debug.Log("pressed 2");
                 if (inventory.Items[1] != null)
                 {
-                    Debug.Log("taking out hammer");
-                    activeItem?.OnPutAway();
-                    activeItem = inventory.Items[1] as InventoryItem;
-                    Debug.Log("using hammer");
-                    (inventory.Items[1] as InventoryItem).OnUse();
+                    if (activeItem?.Equals(inventory.Items[1] as InventoryItem) == true)
+                    {
+                        activeItem?.OnPutAway();
+                        activeItem = null;
+                    }
+                    else
+                    {
+                        activeItem?.OnPutAway();
+                        activeItem = inventory.Items[1] as InventoryItem;
+                        (inventory.Items[1] as InventoryItem).OnUse();
+                    }
                 }
             }
             else if(Input.GetKey(KeyCode.Alpha3))
             {
+                Debug.Log("pressed 3");
+
                 if (inventory.Items[2] != null)
                 {
-                    activeItem.OnPutAway();
-                    Debug.Log("Flashlight on");
+                    (inventory.Items[2] as InventoryItem).OnUse();
                 }
             }
             else if(Input.GetKey(KeyCode.Alpha4))
