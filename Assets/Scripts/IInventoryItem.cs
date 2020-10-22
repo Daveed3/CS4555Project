@@ -7,6 +7,7 @@ namespace Assets.Scripts
     public interface IInventoryItem
     {
         string Name { get; set; }
+        Sprite Image { get; set; }
         void OnPickup();
     }
 
