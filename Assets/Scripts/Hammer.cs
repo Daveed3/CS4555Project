@@ -24,8 +24,6 @@ namespace Assets.Scripts
             placeholderArmAnimator.SetInteger("HoldingHammer", 1);
             bodyAnimator.SetInteger("HoldingHammer", 1);
 
-            Debug.Log("holding hammer");
-
             base.OnUse();
         }
 
@@ -40,8 +38,6 @@ namespace Assets.Scripts
             armAnimator.SetInteger("HoldingHammer", 0);
             placeholderArmAnimator.SetInteger("HoldingHammer", 0);
             bodyAnimator.SetInteger("HoldingHammer", 0);
-
-            Debug.Log("holding hammer");
 
             base.OnPutAway();
         }
