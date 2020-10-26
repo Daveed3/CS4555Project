@@ -13,6 +13,8 @@ namespace Assets.Scripts
         public Animator armAnimator;
         public Animator placeholderArmAnimator;
         public Animator bodyAnimator;
+        public AudioSource walkingMediumSFX;
+        public AudioSource walkingFastSFX;
 
         public GameObject cameraPlayerArms;
         public GameObject placeHolderPlayerArms;
@@ -57,6 +59,9 @@ namespace Assets.Scripts
 
             hammerScript = playerBody.GetComponent<HammerHit>();
             handgunScript = handgun.GetComponent<SimpleShoot>();
+
+            walkingMediumSFX.volume = .4f;
+            walkingFastSFX.volume = .4f;
         }
 
       
@@ -99,6 +104,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("condition", 1);
                 placeholderArmAnimator.SetInteger("condition", 1);
                 bodyAnimator.SetInteger("condition", 1);
+                walkingMediumSFX.Play();
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
             {
@@ -106,6 +112,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("condition", 0);
                 placeholderArmAnimator.SetInteger("condition", 0);
                 bodyAnimator.SetInteger("condition", 0);
+                walkingMediumSFX.Stop();
             }
 
             float x = Input.GetAxis("Horizontal");
@@ -120,6 +127,8 @@ namespace Assets.Scripts
             if (isGrounded && Input.GetButtonDown("Jump"))
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                walkingFastSFX.Pause();
+                walkingMediumSFX.Pause();
             }
 
 
@@ -151,6 +160,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsRunning", 1);
                 placeholderArmAnimator.SetInteger("IsRunning", 1);
                 bodyAnimator.SetInteger("IsRunning", 1);
+                walkingFastSFX.Play();
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift)){
                 movementSpeed = movementSpeed / 2;
@@ -158,6 +168,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsRunning", 0);
                 placeholderArmAnimator.SetInteger("IsRunning", 0);
                 bodyAnimator.SetInteger("IsRunning", 0);
+                walkingFastSFX.Pause();
             }
 
 

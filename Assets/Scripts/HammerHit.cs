@@ -8,6 +8,7 @@ using Assets.Scripts;
 public class HammerHit : MonoBehaviour
 {
     public Animator animator;
+    public AudioSource hammerHit;
 
     public Transform attackPoint;
     public float attackRange = 1f;
@@ -27,6 +28,7 @@ public class HammerHit : MonoBehaviour
         {
             animator.SetTrigger("HammerHit");
             Attack();
+            hammerHit.Play();
         }
     }
 

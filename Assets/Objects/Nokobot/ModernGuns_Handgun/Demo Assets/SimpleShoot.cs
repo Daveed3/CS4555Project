@@ -12,6 +12,7 @@ public class SimpleShoot : MonoBehaviour
     public Transform casingExitLocation;
 
     public Animator armAnimator;
+    public AudioSource shootingSFX;
 
     public float shotPower = 100f;
     GameObject bullet;
@@ -29,6 +30,7 @@ public class SimpleShoot : MonoBehaviour
         {
             armAnimator.SetTrigger("ShootHandgun");
             GetComponent<Animator>().SetTrigger("Fire");
+            shootingSFX.Play();
         }
     }
 
