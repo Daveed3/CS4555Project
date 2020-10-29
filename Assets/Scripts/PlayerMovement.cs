@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Runtime.Hosting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts
 {
@@ -15,6 +16,7 @@ namespace Assets.Scripts
         public Animator bodyAnimator;
         public AudioSource walkingMediumSFX;
         public AudioSource walkingFastSFX;
+        public AudioSource ambientSFX;
 
         public GameObject cameraPlayerArms;
         public GameObject placeHolderPlayerArms;
@@ -49,6 +51,7 @@ namespace Assets.Scripts
         private HammerHit hammerScript;
         private SimpleShoot handgunScript;
 
+
         // Start is called before the first frame update
         void Start()
         {
@@ -62,12 +65,16 @@ namespace Assets.Scripts
 
             walkingMediumSFX.volume = .4f;
             walkingFastSFX.volume = .4f;
+
+            ambientSFX.volume = .05f;
+            ambientSFX.Play();
         }
 
       
         // Update is called once per frame
         void Update()
         {
+            ambientSFX.loop = true;
             
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
@@ -171,6 +178,12 @@ namespace Assets.Scripts
                 walkingFastSFX.Pause();
             }
 
+            // Debug light
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                // Do Nothing rn
+            }
+
 
         }
 
@@ -216,8 +229,6 @@ namespace Assets.Scripts
         void Run() {
             movementSpeed = movementSpeed * 2 ;
         }
-
-
 
         private void OnTriggerEnter(Collider other)
         {
