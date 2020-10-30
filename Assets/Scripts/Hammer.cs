@@ -10,11 +10,10 @@ namespace Assets.Scripts
         public Animator bodyAnimator;
         public GameObject placeHolderPlayerArms;
         public GameObject cameraPlayerArms;
-        public GameObject playerBody;
 
         public override void OnUse()
         {
-            HammerHit script = playerBody.GetComponent<HammerHit>();
+            HammerHit script = GetComponent<HammerHit>();
 
             script.enabled = true;
 
@@ -22,14 +21,13 @@ namespace Assets.Scripts
             cameraPlayerArms.SetActive(true);
             armAnimator.SetInteger("HoldingHammer", 1);
             placeholderArmAnimator.SetInteger("HoldingHammer", 1);
-            bodyAnimator.SetInteger("HoldingHammer", 1);
 
             base.OnUse();
         }
 
         public override void OnPutAway()
         {
-            HammerHit script = playerBody.GetComponent<HammerHit>();
+            HammerHit script = GetComponent<HammerHit>();
 
             script.enabled = false;
 
@@ -37,7 +35,6 @@ namespace Assets.Scripts
             cameraPlayerArms.SetActive(false);
             armAnimator.SetInteger("HoldingHammer", 0);
             placeholderArmAnimator.SetInteger("HoldingHammer", 0);
-            bodyAnimator.SetInteger("HoldingHammer", 0);
 
             base.OnPutAway();
         }

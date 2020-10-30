@@ -64,6 +64,7 @@ namespace Assets.Scripts
 
         public virtual void OnPickup()
         {
+            gameObject.GetComponentInChildren<Light>().enabled = false;
             gameObject.SetActive(false);
         }
     }

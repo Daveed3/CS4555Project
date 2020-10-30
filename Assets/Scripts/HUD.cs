@@ -20,21 +20,25 @@ namespace Assets.Scripts
             Transform slot;
             Image image;
 
-            if (e.Item.Name.Equals("handgun"))
+            if (e.Item.Name.Equals("assault rifle"))
             {
                 slot = inventoryHUD.GetChild(0);
             }
-            else if (e.Item.Name.Equals("hammer"))
+            else if (e.Item.Name.Equals("handgun"))
             {
                 slot = inventoryHUD.GetChild(1);
             }
-            else if (e.Item.Name.Equals("flashlight"))
+            else if (e.Item.Name.Equals("hammer"))
             {
                 slot = inventoryHUD.GetChild(2);
             }
-            else
+            else if (e.Item.Name.Equals("flashlight"))
             {
                 slot = inventoryHUD.GetChild(3);
+            }
+            else
+            {
+                slot = inventoryHUD.GetChild(4);
             }
 
             image = slot.GetChild(0).GetChild(0).GetComponent<Image>();

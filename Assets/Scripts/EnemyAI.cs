@@ -11,18 +11,22 @@ namespace Assets.Scripts
         public Transform target;
         public LayerMask groundMask, targetMask;
         Animator animator;
+        public Player player;
 
         //Attacking
-        public float timeBetweenAttacks;
-        bool hasAttacked;
+        public float timeBetweenAttacks = 0.5f;
+        public bool hasAttacked;
 
         //States
-        public float attackRange;
+        public float attackRange = 1f;
         public bool isInAttackRange;
         public int health;
 
         private bool isDead = false;
         bool hasSpawned = false;
+
+
+        public static int deadEnemyCount;
 
         IEnumerator Start()
         {
@@ -57,19 +61,17 @@ namespace Assets.Scripts
             if (!hasAttacked)
             {
                 //Attack code here (i.e. scratches)
-                // Debug.Log("Attacked");
-                //animator.SetInteger("EnemyHasAttacked", 1);
+                Debug.Log("Attacked");
+                animator.SetInteger("EnemyHasAttacked", 1);
                 hasAttacked = true;
+                player.TakeDamage(20);
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
-            }
-            else
-            {
-                //animator.SetInteger("EnemyHasAttacked", 0);
             }
         }
 
         private void ResetAttack()
         {
+            animator.SetInteger("EnemyHasAttacked", 0);
             hasAttacked = false;
         }
 
@@ -78,8 +80,9 @@ namespace Assets.Scripts
             Debug.Log("Alien took damage");
             health -= damage;
 
-            if (health <= 0) {
+            if (health <= 0 && !isDead) {
                 isDead = true;
+                deadEnemyCount += 1;
                 health = 0;
                 Debug.Log("alien is dead");
                 animator.SetInteger("IsWalking", 0);

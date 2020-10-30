@@ -7,9 +7,9 @@ namespace Assets.Scripts
 {
     public class Inventory : MonoBehaviour
     {
-        private const int INVENTORY_SLOTS = 4;
+        private const int INVENTORY_SLOTS = 5;
         private int itemCount;
-        public IInventoryItem[] Items = new IInventoryItem[INVENTORY_SLOTS];
+        public static IInventoryItem[] Items = new IInventoryItem[INVENTORY_SLOTS];
         public event EventHandler<InventoryEventArgs> ItemAdded;
 
         public void AddItem(IInventoryItem item, int index)

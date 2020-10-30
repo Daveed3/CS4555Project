@@ -13,8 +13,10 @@ namespace Assets.Scripts
         public GameObject parent;
 
         public int enemyCount;
-        public int spawnLimit = 5;
-        public float spawnTime = 5f;
+        public int spawnLimit;
+        public int enemyHealth;
+        public float spawnTime = 8f;
+        public bool spawnEnemies = false;
         static System.Random random = new System.Random();
 
         // list of enemy spawn positions located around the map
@@ -48,21 +50,35 @@ namespace Assets.Scripts
 
         IEnumerator SpawnEnemy()
         {
-            while (enemyCount < spawnLimit)
+            while (true)
             {
-                EnemySpawnLocation spawnPosition = enemySpawns[random.Next(enemySpawns.Count)];
-                // Debug.Log(spawnPosition.X + " " + spawnPosition.Y + " " + spawnPosition.Z);
-                GameObject newEnemy = Instantiate(enemies[random.Next(enemies.Count)]);
-                newEnemy.transform.SetParent(parent.transform);
-                newEnemy.transform.position = new Vector3(spawnPosition.X, spawnPosition.Y, spawnPosition.Z); // TODO: Need to figure out why position coords are displayed as *10^-1
-                newEnemy.transform.rotation = Quaternion.identity;
-                newEnemy.SetActive(true);
-                Animator animator = newEnemy.GetComponent<Animator>();
-                animator.SetInteger("HasSpawned", 1);
-                enemyCount += 1;
-                // Debug.Log("enemy count" + enemyCount);
-                yield return new WaitForSeconds(spawnTime);
-            }
+                if (spawnEnemies)
+                {
+                    EnemySpawnLocation spawnPosition = enemySpawns[random.Next(enemySpawns.Count)];
+                    // Debug.Log(spawnPosition.X + " " + spawnPosition.Y + " " + spawnPosition.Z);
+                    GameObject newEnemy = Instantiate(enemies[random.Next(enemies.Count)]);
+                    EnemyAI enemy = newEnemy.GetComponent<EnemyAI>();
+                    enemy.health = enemyHealth;
+
+                    newEnemy.transform.SetParent(parent.transform);
+                    newEnemy.transform.position = new Vector3(spawnPosition.X, spawnPosition.Y, spawnPosition.Z);
+                    newEnemy.transform.rotation = Quaternion.identity;
+                    newEnemy.SetActive(true);
+                    Animator animator = newEnemy.GetComponent<Animator>();
+                    animator.SetInteger("HasSpawned", 1);
+                    enemyCount += 1;
+                    if (enemyCount >= spawnLimit)
+                    {
+                        spawnEnemies = false;
+                    }
+                    // Debug.Log("enemy count" + enemyCount);
+                    yield return new WaitForSeconds(spawnTime);
+                }
+                else
+                {
+                    yield return null;
+                }
+            }            
         }
     }
 }
