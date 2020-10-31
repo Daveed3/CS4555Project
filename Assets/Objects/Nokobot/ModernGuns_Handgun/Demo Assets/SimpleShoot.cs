@@ -13,7 +13,8 @@ public class SimpleShoot : MonoBehaviour
     public Transform casingExitLocation;
     public Handgun handgun;
     public Animator armAnimator;
-
+    public AudioSource shootingSFX;
+    
     public float shotPower = 100f;
     GameObject bullet;
 
@@ -43,6 +44,7 @@ public class SimpleShoot : MonoBehaviour
 
     void Shoot()
     {
+        shootingSFX.Play();
         bullet = Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation);
         bullet.GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
 

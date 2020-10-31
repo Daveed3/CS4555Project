@@ -115,6 +115,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsWalking", 1);
                 placeholderArmAnimator.SetInteger("IsWalking", 1);
                 bodyAnimator.SetInteger("IsWalking", 1);
+                walkingMediumSFX.Play();
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
             {
@@ -122,6 +123,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsWalking", 0);
                 placeholderArmAnimator.SetInteger("IsWalking", 0);
                 bodyAnimator.SetInteger("IsWalking", 0);
+                walkingMediumSFX.Stop();
             }
 
             float x = Input.GetAxis("Horizontal");
@@ -136,6 +138,8 @@ namespace Assets.Scripts
             if (isGrounded && Input.GetButtonDown("Jump"))
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                walkingFastSFX.Pause();
+                walkingMediumSFX.Pause();
             }
 
 
@@ -167,6 +171,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsRunning", 1);
                 placeholderArmAnimator.SetInteger("IsRunning", 1);
                 bodyAnimator.SetInteger("IsRunning", 1);
+                walkingFastSFX.Play();
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift)){
                 movementSpeed = movementSpeed / 2;
@@ -174,6 +179,7 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsRunning", 0);
                 placeholderArmAnimator.SetInteger("IsRunning", 0);
                 bodyAnimator.SetInteger("IsRunning", 0);
+                walkingFastSFX.Pause();
             }
 
 
