@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts;
 
 public class SimpleShoot : MonoBehaviour
 {
@@ -10,9 +11,8 @@ public class SimpleShoot : MonoBehaviour
     public GameObject muzzleFlashPrefab;
     public Transform barrelLocation;
     public Transform casingExitLocation;
-
+    public Handgun handgun;
     public Animator armAnimator;
-    public AudioSource shootingSFX;
 
     public float shotPower = 100f;
     GameObject bullet;
@@ -28,9 +28,16 @@ public class SimpleShoot : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            armAnimator.SetTrigger("ShootHandgun");
-            GetComponent<Animator>().SetTrigger("Fire");
-            shootingSFX.Play();
+            if (handgun.HasAmmunition)
+            {
+                armAnimator.SetTrigger("ShootHandgun");
+                handgun.Shoot();
+                GetComponent<Animator>().SetTrigger("Fire");
+            }
+            else
+            {
+                Debug.Log("Handgun out of ammo!");
+            }
         }
     }
 
@@ -57,6 +64,4 @@ public class SimpleShoot : MonoBehaviour
         casing.GetComponent<Rigidbody>().AddTorque(new Vector3(0, Random.Range(100f, 500f), Random.Range(10f, 1000f)), ForceMode.Impulse);
         Destroy(casing, 1.0f);
     }
-
-    
 }

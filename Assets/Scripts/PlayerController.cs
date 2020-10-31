@@ -13,6 +13,9 @@ namespace Assets.Scripts
         public Animator armAnimator;
         public Animator placeholderArmAnimator;
         public Animator bodyAnimator;
+        public AudioSource walkingMediumSFX;
+        public AudioSource walkingFastSFX;
+        public AudioSource ambientSFX;
 
         public GameObject cameraPlayerArms;
         public GameObject placeHolderPlayerArms;
@@ -57,12 +60,19 @@ namespace Assets.Scripts
 
             hammerScript = playerBody.GetComponent<HammerHit>();
             handgunScript = handgun.GetComponent<SimpleShoot>();
+
+            walkingMediumSFX.volume = .4f;
+            walkingFastSFX.volume = .4f;
+
+            ambientSFX.volume = .05f;
+            ambientSFX.Play();
         }
 
       
         // Update is called once per frame
         void Update()
         {
+            ambientSFX.loop = true;
             
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
