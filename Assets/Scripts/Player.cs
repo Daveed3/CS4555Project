@@ -5,8 +5,9 @@ namespace Assets.Scripts
 {
     public class Player : MonoBehaviour
     {
-        public int Health = 100;
-        public bool isDead = false;
+        public int Health = 100000000;
+        public bool IsDead = false;
+        public int Score = 0;
         public InventoryManager InventoryManager;
         InventoryItem EquippedItem
         {
@@ -29,7 +30,7 @@ namespace Assets.Scripts
 
         private IEnumerator RegenerateHealth()
         {
-            while (!isDead)
+            while (!IsDead)
             {
                 if (Health < 100)
                 {
@@ -43,12 +44,27 @@ namespace Assets.Scripts
             }
         }
 
+        public void IncreaseScore(bool HitEnemy)
+        {
+            if(HitEnemy)
+            {
+                Score += 15;
+                Debug.Log($"Score is {Score}");
+            }
+        }
+
+        public void DecreaseScore(int Amount)
+        {
+            Score -= Amount;
+            Debug.Log($"Score is {Score}");
+        }
+
         public void TakeDamage(int damage)
         {
             Health -= damage;
             if(Health <= 0)
             {
-                isDead = true;
+                IsDead = true;
             }
         }
     }

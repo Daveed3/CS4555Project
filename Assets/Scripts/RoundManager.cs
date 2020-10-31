@@ -22,7 +22,7 @@ namespace Assets.Scripts
         // Update is called once per frame
         IEnumerator Rounds()
         {
-            while (!Player.isDead)
+            while (!Player.IsDead)
             {
                 if (!StartRounds)
                 {

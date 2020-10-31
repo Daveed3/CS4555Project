@@ -79,6 +79,7 @@ namespace Assets.Scripts
         {
             Debug.Log("Alien took damage");
             health -= damage;
+            player.IncreaseScore(true);
 
             if (health <= 0 && !isDead) {
                 isDead = true;

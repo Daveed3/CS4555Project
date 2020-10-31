@@ -1130,6 +1130,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -3698640631390703503, guid: 514affdb7c5de78408975037b2b533f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6009f92a0136b848aba9dc798e85f10, type: 2}
     - target: {fileID: 919132149155446097, guid: 514affdb7c5de78408975037b2b533f3,
         type: 3}
       propertyPath: m_Name
@@ -5783,7 +5788,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6436,7 +6441,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9217,7 +9222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 100
-  isDead: 0
+  IsDead: 0
+  Score: 0
   InventoryManager: {fileID: 345443185}
 --- !u!65 &345443181
 BoxCollider:
@@ -9295,12 +9301,12 @@ MonoBehaviour:
   playerBody: {fileID: 345443178}
   armAnimator: {fileID: 1498857805}
   placeholderArmAnimator: {fileID: 1138848998}
-  bodyAnimator: {fileID: 1138848998}
+  bodyAnimator: {fileID: 1242242405}
   walkingMediumSFX: {fileID: 995099653}
   walkingFastSFX: {fileID: 1454409882}
   ambientSFX: {fileID: 1781118528}
   cameraPlayerArms: {fileID: 1498857804}
-  placeHolderPlayerArms: {fileID: 0}
+  placeHolderPlayerArms: {fileID: 1138848996}
   originalPlayerHeight: 3.8
   crouchedHeight: 2
   proneHeight: 0.75
@@ -9314,9 +9320,6 @@ MonoBehaviour:
     m_Bits: 256
   Inventory: {fileID: 347796462}
   Hud: {fileID: 1468656226}
-  Hand: {fileID: 1083301213}
-  Chest: {fileID: 2017124553}
-  handgun: {fileID: 456015109}
 --- !u!1 &347796461 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9116420325105028014, guid: 93776f12a0a4d774f912d13bd9d26092,
@@ -11520,12 +11523,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &456015109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1569160750861012, guid: fc89912481daf614d9ffef21aa6cfbac,
-    type: 3}
-  m_PrefabInstance: {fileID: 1252030285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &463198466
 GameObject:
   m_ObjectHideFlags: 0
@@ -12108,32 +12105,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 512605191}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &517687386
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Height Fog Global
-  m_Shader: {fileID: 4800000, guid: 9da22842a83f2b04fb33895f285cd27e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _HeightFogGlobal: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _TITLE: 1
-    - _TransparentQueue: 3000
-    m_Colors: []
 --- !u!1001 &521043471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12606,7 +12577,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12685,7 +12656,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18458,6 +18429,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3698640631390703503, guid: 514affdb7c5de78408975037b2b533f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c6009f92a0136b848aba9dc798e85f10, type: 2}
     - target: {fileID: 919132149155446097, guid: 514affdb7c5de78408975037b2b533f3,
         type: 3}
       propertyPath: m_Name
@@ -20918,7 +20894,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21752,7 +21728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73a951a50115a24a963ed3bfedc441b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
+  mouseSensitivity: 50
   playerBody: {fileID: 345443179}
 --- !u!81 &755960154
 AudioListener:
@@ -24304,7 +24280,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26011,7 +25987,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26092,7 +26068,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29288,7 +29264,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31012,6 +30988,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300004, guid: d0f986f95aaf0db4a90ebaf27e21d7a6, type: 3}
+--- !u!21 &1123386459
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Override
+  m_Shader: {fileID: 4800000, guid: 248497b1c0f049d40bced414cee92f6b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalFalloff: 2
+    - _DirectionalIntensity: 1
+    - _DirectionalMode: 1
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogColorDuo: 1
+    - _FogDistanceEnd: 200
+    - _FogDistanceFalloff: 2
+    - _FogDistanceStart: -200
+    - _FogHeightEnd: 200
+    - _FogHeightFalloff: 2
+    - _FogHeightStart: 0
+    - _FogIntensity: 1
+    - _FogLayersMode: 0
+    - _IsHeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 50
+    - _NoiseIntensity: 1
+    - _NoiseMode: 2
+    - _NoiseModeBlend: 1
+    - _NoiseScale: 30
+    - _SKYBOXX: 1
+    - _SkyboxFogFalloff: 1
+    - _SkyboxFogFill: 1
+    - _SkyboxFogHeight: 1
+    - _SkyboxFogIntensity: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
+    - _DirectionalDir: {r: 0, g: 0, b: 0, a: 0}
+    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
+    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
+    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1001 &1125962883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31488,7 +31521,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32673,7 +32706,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37971,8 +38004,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f241a42ac4ea2d478936a8b639e9073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupPosition: {x: 0, y: 0, z: 0}
-  PickupRotation: {x: 0, y: 0, z: 0}
+  PickupPosition: {x: -0.00006, y: 0.00255, z: 0.00221}
+  PickupRotation: {x: 67.68, y: 19.743, z: 118.37}
   parent: {fileID: 1083301213}
   ItemName: hammer
   spriteImage: {fileID: 21300000, guid: b2bb34752260bee4e993651a87c52624, type: 3}
@@ -40790,6 +40823,7 @@ MonoBehaviour:
   parent: {fileID: 0}
   ItemName: ammunition
   spriteImage: {fileID: 0}
+  Player: {fileID: 345443180}
 --- !u!65 &1430905065
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41357,6 +41391,32 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 744622765}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1470181312
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Height Fog Global
+  m_Shader: {fileID: 4800000, guid: 9da22842a83f2b04fb33895f285cd27e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _HeightFogGlobal: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _TITLE: 1
+    - _TransparentQueue: 3000
+    m_Colors: []
 --- !u!1001 &1478133301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45173,7 +45233,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45513,63 +45573,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!21 &1635011628
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Override
-  m_Shader: {fileID: 4800000, guid: 248497b1c0f049d40bced414cee92f6b, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalFalloff: 2
-    - _DirectionalIntensity: 1
-    - _DirectionalMode: 1
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogColorDuo: 1
-    - _FogDistanceEnd: 200
-    - _FogDistanceFalloff: 2
-    - _FogDistanceStart: -200
-    - _FogHeightEnd: 200
-    - _FogHeightFalloff: 2
-    - _FogHeightStart: 0
-    - _FogIntensity: 1
-    - _FogLayersMode: 0
-    - _IsHeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 50
-    - _NoiseIntensity: 1
-    - _NoiseMode: 2
-    - _NoiseModeBlend: 1
-    - _NoiseScale: 30
-    - _SKYBOXX: 1
-    - _SkyboxFogFalloff: 1
-    - _SkyboxFogFill: 1
-    - _SkyboxFogHeight: 1
-    - _SkyboxFogIntensity: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.7793103, b: 0.5, a: 1}
-    - _DirectionalDir: {r: 0, g: 0, b: 0, a: 0}
-    - _FogAxisOption: {r: 0, g: 0, b: 0, a: 0}
-    - _FogColorEnd: {r: 0.8862745, g: 1.443137, b: 2, a: 1}
-    - _FogColorStart: {r: 0.4411765, g: 0.722515, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0.5, g: 0, b: 0.5, a: 0}
 --- !u!1001 &1637722460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46872,7 +46875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1696907042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.25, y: -0.79, z: -10.32}
+  m_LocalPosition: {x: -18.34, y: 0.73, z: -10.32}
   m_LocalScale: {x: 1.4773905, y: 1.477391, z: 0.9849309}
   m_Children:
   - {fileID: 946533452}
@@ -46902,16 +46905,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c619744fa3ff84aa52ed301ec0bbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupPosition: {x: 0, y: 0, z: 0}
-  PickupRotation: {x: 0, y: 0, z: 0}
-  parent: {fileID: 0}
-  ItemName: 
-  spriteImage: {fileID: 0}
-  armAnimator: {fileID: 0}
-  placeholderArmAnimator: {fileID: 0}
-  bodyAnimator: {fileID: 0}
-  placeHolderPlayerArms: {fileID: 0}
-  cameraPlayerArms: {fileID: 0}
+  PickupPosition: {x: 0.00107, y: 0.00262, z: 0.0001}
+  PickupRotation: {x: -60.739, y: -169.73, z: -27.699}
+  parent: {fileID: 1083301213}
+  ItemName: assault rifle
+  spriteImage: {fileID: 21300000, guid: c5ecaf6602e9d9f439a0a13ab55b920b, type: 3}
+  armAnimator: {fileID: 1498857805}
+  placeholderArmAnimator: {fileID: 1138848998}
+  bodyAnimator: {fileID: 1242242405}
+  placeHolderPlayerArms: {fileID: 1138848996}
+  cameraPlayerArms: {fileID: 1498857804}
   AmmunitionCount: 500
 --- !u!65 &1696907045
 BoxCollider:
@@ -47268,7 +47271,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47464,7 +47467,7 @@ MonoBehaviour:
   categoryAdvanced: 0
   renderPriority: 1
   styledSpace0: 0
-  overrideMaterial: {fileID: 1635011628}
+  overrideMaterial: {fileID: 1123386459}
   overrideCamToVolumeDistance: 1
   overrideVolumeDistanceFade: 0
   version: 180
@@ -47495,7 +47498,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 517687386}
+  - {fileID: 1470181312}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53735,7 +53738,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d29301befc8733e4a94027d3b539b0c4, type: 2}
+  - {fileID: 2100000, guid: 41ba4fd14af3c764594e6ccd3531d2e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -54018,11 +54021,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fc6c6098f2e6d3d4589c7675c9345561, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.013298035
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fc6c6098f2e6d3d4589c7675c9345561, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.10933328
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fc6c6098f2e6d3d4589c7675c9345561, type: 3}
       propertyPath: m_LocalPosition.z
@@ -54738,8 +54741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b123dd28917f6814ea5c34a0bcca91ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PickupPosition: {x: 0, y: 0, z: 0}
-  PickupRotation: {x: 0, y: 0, z: 0}
+  PickupPosition: {x: 0.00025, y: 0.0021, z: -0.00056}
+  PickupRotation: {x: -65.743, y: -129.268, z: -47.131}
   parent: {fileID: 1083301213}
   ItemName: handgun
   spriteImage: {fileID: 21300000, guid: b7b25793f6708174ebe97fe000739ff4, type: 3}

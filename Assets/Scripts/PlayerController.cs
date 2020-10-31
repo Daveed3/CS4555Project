@@ -43,12 +43,6 @@ namespace Assets.Scripts
         public HUD Hud;
 
         private IInventoryItem itemToPickup = null;
-        public GameObject Hand;
-        public GameObject Chest;
-        public GameObject handgun;
-
-        private HammerHit hammerScript;
-        private SimpleShoot handgunScript;
 
         // Start is called before the first frame update
         void Start()
@@ -58,8 +52,6 @@ namespace Assets.Scripts
             placeholderArmAnimator = placeholderArmAnimator.GetComponent<Animator>();
             bodyAnimator = bodyAnimator.GetComponent<Animator>();
 
-            hammerScript = playerBody.GetComponent<HammerHit>();
-            handgunScript = handgun.GetComponent<SimpleShoot>();
 
             walkingMediumSFX.volume = .4f;
             walkingFastSFX.volume = .4f;
