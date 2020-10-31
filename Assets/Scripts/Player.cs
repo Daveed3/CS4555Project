@@ -5,9 +5,10 @@ namespace Assets.Scripts
 {
     public class Player : MonoBehaviour
     {
-        public int Health = 100000000;
+        public int Health = 100;
         public bool IsDead = false;
         public int Score = 0;
+        public int KillCount = 0;
         public InventoryManager InventoryManager;
         InventoryItem EquippedItem
         {
@@ -57,6 +58,12 @@ namespace Assets.Scripts
         {
             Score -= Amount;
             Debug.Log($"Score is {Score}");
+        }
+
+        public void IncreaseKillCount()
+        {
+            KillCount += 1;
+            Debug.Log($"Kill count is {KillCount}");
         }
 
         public void TakeDamage(int damage)

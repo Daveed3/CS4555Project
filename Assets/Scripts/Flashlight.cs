@@ -5,25 +5,25 @@ namespace Assets.Scripts
 {
     public class Flashlight : InventoryItem
     {
-        private bool isOn = false;
+        private bool IsOn = false;
 
         public override void OnUse()
         {
             Light light = GetComponent<Light>();
             Renderer renderer = GetComponent<Renderer>();
-            Debug.Log("isOn is " + isOn);
-            if(!isOn)
+            Debug.Log("IsOn is " + IsOn);
+            if(!IsOn)
             {
                 light.enabled = true;
                 renderer.material.EnableKeyword("_EMISSION");
+                IsOn = true;
             }
             else
             {
                 light.enabled = false;
                 renderer.material.DisableKeyword("_EMISSION");
+                IsOn = false;
             }
-
-            isOn = !isOn;
         }
 
         public override void OnPickup()

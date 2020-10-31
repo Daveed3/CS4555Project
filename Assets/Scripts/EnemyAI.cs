@@ -86,6 +86,7 @@ namespace Assets.Scripts
                 deadEnemyCount += 1;
                 health = 0;
                 Debug.Log("alien is dead");
+                player.IncreaseKillCount();
                 animator.SetInteger("IsWalking", 0);
                 animator.SetInteger("IsDead", 1);
                 Invoke(nameof(DestroyEnemy), 10f);
