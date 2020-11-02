@@ -7,7 +7,7 @@ namespace Assets.Scripts
     {
         public int Health = 100;
         public bool IsDead = false;
-        public int Score = 0;
+        public static int Score = 0;
         public int KillCount = 0;
         public InventoryManager InventoryManager;
         InventoryItem EquippedItem

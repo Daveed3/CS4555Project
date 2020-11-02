@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     public class RoundManager : MonoBehaviour
     {
-        private int Round = 0;
+        public static int Round = 0;
         private bool StartRounds = false;
         public Player Player;
         public EnemyAI EnemyAI;
