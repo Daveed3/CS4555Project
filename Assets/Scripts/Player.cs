@@ -6,7 +6,7 @@ namespace Assets.Scripts
     public class Player : MonoBehaviour
     {
         public int Health = 100;
-        public bool IsDead = false;
+        public static bool IsDead = false;
         public static int Score = 0;
         public int KillCount = 0;
         public InventoryManager InventoryManager;
