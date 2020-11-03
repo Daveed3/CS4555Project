@@ -113,5 +113,15 @@ namespace Assets.Scripts
                 }
             }
         }
+
+        void OnDrawGizmosSelected()
+        {
+            if (isInAttackRange == false)
+            {
+                return;
+            }
+
+            Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
     }
 }
