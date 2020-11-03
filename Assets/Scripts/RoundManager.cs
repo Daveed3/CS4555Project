@@ -28,7 +28,7 @@ namespace Assets.Scripts
                 {
                     // give the player 60 seconds to explore before starting the rounds
                     Debug.Log("Game is starting, wait 10 seconds...");
-                    yield return new WaitForSeconds(30);
+                    yield return new WaitForSeconds(60);
                     StartRounds = true;
                 }
                 else if (StartRounds && Round == 0)

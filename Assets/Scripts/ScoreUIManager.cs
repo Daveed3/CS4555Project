@@ -15,7 +15,7 @@ namespace Assets.Scripts
 
         void Update()
         {
-            RoundText.text = RoundManager.Round == 0 ? "The game will start in 30 seconds..." : $"ROUND {RoundManager.Round}";
+            RoundText.text = RoundManager.Round == 0 ? "The game will start in 60 seconds..." : $"ROUND {RoundManager.Round}";
             ScoreText.text = $"score {Player.Score}";
 
             if(Player.IsDead)

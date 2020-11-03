@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Frontyard Scene.unity
+  - enabled: 0
+    path: Assets/_Assets/Scenes/Inventory Test Scene.unity
     guid: 90e8cd1646b447b4bbe7d521022dac5d
+  - enabled: 1
+    path: Assets/Scenes/Inventory Test Scene.unity
+    guid: dfc88df58d1561440a861ddda0f03721
   m_configObjects: {}
