@@ -9,7 +9,7 @@ namespace Assets.Scripts
         public Vector3 ItemRotation;
 
         public string ItemName;
-
+        public int Health = 0;
         public Animator animator;
 
         public string Name
@@ -24,26 +24,31 @@ namespace Assets.Scripts
             }
         }
 
-        public virtual void OnDamaged(int damage)
+        public void OnDamaged(int damage)
         {
-            return;
+            Health -= damage;
+
+            if (Health <= 0)
+            {
+                OnDestroy();
+            }
         }
 
-        public virtual void OnDestroy()
+        public void OnDestroy()
         {
             gameObject.SetActive(false);
         }
 
-        public virtual void OnRebuild()
+        public void OnRebuild()
         {
             for (int i = 0; i < transform.childCount; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(true);
             }
-
             animator.SetInteger("Rebuild", 1);
+
+            Health = 100;
             //gameObject.SetActive(true);
         }
-
     }
 }

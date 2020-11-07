@@ -39,7 +39,7 @@ namespace Assets.Scripts
         private bool isProne = false;
 
         public Inventory Inventory;
-
+        public Player Player;
         public HUD Hud;
 
         private IInventoryItem itemToPickup = null;
@@ -91,15 +91,17 @@ namespace Assets.Scripts
                 // instead, increase the ammo count in the handgun class
 
                 (itemToPickup as InventoryItem).OnPickup();
-
+                itemToPickup = null;
                 Hud.CloseMessagePanel();
             }
             else if(Input.GetKeyDown(KeyCode.F) && itemToBuild != null)
             {
-                if (itemToBuild.Name.Equals("window"))
+                if (itemToBuild.Name.Equals("buildable"))
                 {
+                    (Player.EquippedItem as Hammer).BuildBarrier();
                     (itemToBuild as BuildableItem).OnRebuild();
                 }
+                itemToBuild = null;
             }
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -237,12 +239,15 @@ namespace Assets.Scripts
             if (item != null)
             {
                 itemToPickup = item;
-                Hud.OpenMessagePanel("");
+                Hud.OpenMessagePanel($"Press F to pickup {item.Name}");
             }
-            else if(buildableItem != null)
+            else if(buildableItem != null && Player.EquippedItem.ItemName.Equals("hammer"))
             {
-                itemToBuild = buildableItem;
-                Hud.OpenMessagePanel("");
+                if ((buildableItem as BuildableItem).Health < 100)
+                {
+                    itemToBuild = buildableItem;
+                    Hud.OpenMessagePanel("Press F to rebuild barrier");
+                }
             }
         }
 

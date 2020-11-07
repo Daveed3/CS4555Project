@@ -25,6 +25,11 @@ namespace Assets.Scripts
             base.OnUse();
         }
 
+        public void BuildBarrier()
+        {
+            armAnimator.SetTrigger("HammerBuildBarrier");
+        }
+
         public override void OnPutAway()
         {
             HammerHit script = GetComponent<HammerHit>();

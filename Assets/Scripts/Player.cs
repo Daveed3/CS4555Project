@@ -10,17 +10,12 @@ namespace Assets.Scripts
         public static int Score = 0;
         public int KillCount = 0;
         public InventoryManager InventoryManager;
-        InventoryItem EquippedItem
+        public InventoryItem EquippedItem
         {
             get
             {
-                return EquippedItem;
+                return InventoryManager.activeItem;
             }
-            set
-            {
-                EquippedItem = InventoryManager.activeItem;
-            }
-            
         }
 
 

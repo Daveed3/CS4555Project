@@ -48,11 +48,13 @@ namespace Assets.Scripts
 
         public void OpenMessagePanel(string text)
         {
+            ItemMessagePanel.GetComponentInChildren<Text>().text = text;
             ItemMessagePanel.SetActive(true);
         }
 
         public void CloseMessagePanel()
         {
+            ItemMessagePanel.GetComponentInChildren<Text>().text = "";
             ItemMessagePanel.SetActive(false);
         }
     }

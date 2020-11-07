@@ -23,7 +23,7 @@ namespace Assets.Scripts
                 CrossHairCanvas.enabled = false;
                 InventoryCanvas.enabled = false;
                 RoundText.enabled = false;
-                GameOverUI.active = true;
+                GameOverUI.SetActive(true);
                 GameOverText.text = $"Game Over! \n You survived {RoundManager.Round} rounds!";
             }
         }
