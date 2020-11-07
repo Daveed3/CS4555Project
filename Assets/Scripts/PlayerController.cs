@@ -43,6 +43,7 @@ namespace Assets.Scripts
         public HUD Hud;
 
         private IInventoryItem itemToPickup = null;
+        private IBuildableItem itemToBuild = null;
 
         // Start is called before the first frame update
         void Start()
@@ -92,6 +93,13 @@ namespace Assets.Scripts
                 (itemToPickup as InventoryItem).OnPickup();
 
                 Hud.CloseMessagePanel();
+            }
+            else if(Input.GetKeyDown(KeyCode.F) && itemToBuild != null)
+            {
+                if (itemToBuild.Name.Equals("window"))
+                {
+                    (itemToBuild as BuildableItem).OnRebuild();
+                }
             }
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -225,9 +233,15 @@ namespace Assets.Scripts
         private void OnTriggerEnter(Collider other)
         {
             IInventoryItem item = other.GetComponent<IInventoryItem>();
+            IBuildableItem buildableItem = other.GetComponent<IBuildableItem>();
             if (item != null)
             {
                 itemToPickup = item;
+                Hud.OpenMessagePanel("");
+            }
+            else if(buildableItem != null)
+            {
+                itemToBuild = buildableItem;
                 Hud.OpenMessagePanel("");
             }
         }
@@ -235,10 +249,16 @@ namespace Assets.Scripts
         private void OnTriggerExit(Collider other)
         {
             IInventoryItem item = other.GetComponent<IInventoryItem>();
+            IBuildableItem buildableItem = other.GetComponent<IBuildableItem>();
             if (item != null)
             {
                 Hud.CloseMessagePanel();
                 itemToPickup = null;
+            }
+            else if(buildableItem != null)
+            {
+                Hud.CloseMessagePanel();
+                itemToBuild = null;
             }
         }
     }

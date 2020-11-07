@@ -10,6 +10,8 @@ namespace Assets.Scripts
 
         public string ItemName;
 
+        public Animator animator;
+
         public string Name
         {
             get
@@ -34,7 +36,13 @@ namespace Assets.Scripts
 
         public virtual void OnRebuild()
         {
-            gameObject.SetActive(true);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(true);
+            }
+
+            animator.SetInteger("Rebuild", 1);
+            //gameObject.SetActive(true);
         }
 
     }
