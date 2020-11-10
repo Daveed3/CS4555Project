@@ -12,6 +12,7 @@ namespace Assets.Scripts
         public LayerMask groundMask, targetMask;
         Animator animator;
         public Player player;
+        private BuildableItem window;
 
         //Attacking
         public float timeBetweenAttacks = 0.5f;
@@ -40,7 +41,7 @@ namespace Assets.Scripts
 
         private void Awake()
         {
-            target = GameObject.Find("Player").transform;
+            target = GameObject.Find(target.name).transform;
             agent = GetComponent<NavMeshAgent>();
         }
 
@@ -53,6 +54,7 @@ namespace Assets.Scripts
 
         private void AttackTarget()
         {
+
             //Make sure enemy doesn't move while attacking
             agent.SetDestination(transform.position);
 
@@ -64,7 +66,19 @@ namespace Assets.Scripts
                 Debug.Log("Attacked");
                 animator.SetInteger("EnemyHasAttacked", 1);
                 hasAttacked = true;
-                player.TakeDamage(20);
+                if (target.name == "Player") {
+                    player.TakeDamage(20);
+                } else if (target.name == "wood planks") {
+                    if (window != null) {
+                        window.OnDamaged(20);
+                        if (window.Health <= 0) {
+                            target = player.transform;
+                            targetMask = LayerMask.GetMask("Player");
+
+                            window = null;
+                        }
+                    }
+                }
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
             }
         }
@@ -110,6 +124,22 @@ namespace Assets.Scripts
                 if (isInAttackRange)
                 {
                     AttackTarget();
+                }
+            }
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            Debug.Log("Starting OnTrigger");
+            IBuildableItem buildableItem = other.GetComponent<IBuildableItem>();
+            
+            if(buildableItem != null)
+            {
+                if ((buildableItem as BuildableItem).Health > 0)
+                {
+                    window = buildableItem as BuildableItem;
+                    target = window.transform;
+                    targetMask = LayerMask.GetMask("Window");
+                    Debug.Log("Need to stop");
                 }
             }
         }
