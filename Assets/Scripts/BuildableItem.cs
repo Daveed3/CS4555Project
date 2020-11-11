@@ -36,7 +36,11 @@ namespace Assets.Scripts
 
         public void OnDestroy()
         {
-            gameObject.SetActive(false);
+            // Assuming first 5 objects are are planks, disable them, not the NavMeshLink (object 6)
+            for (int i=0; i<transform.childCount-1; i++) {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+            // gameObject.SetActive(false);
         }
 
         public void OnRebuild()

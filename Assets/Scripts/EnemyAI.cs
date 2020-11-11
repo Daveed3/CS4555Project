@@ -74,7 +74,7 @@ namespace Assets.Scripts
                         if (window.Health <= 0) {
                             target = player.transform;
                             targetMask = LayerMask.GetMask("Player");
-
+                            agent.autoTraverseOffMeshLink = true;
                             window = null;
                         }
                     }
@@ -139,6 +139,7 @@ namespace Assets.Scripts
                     window = buildableItem as BuildableItem;
                     target = window.transform;
                     targetMask = LayerMask.GetMask("Window");
+                    agent.autoTraverseOffMeshLink = false;
                     Debug.Log("Need to stop");
                 }
             }
