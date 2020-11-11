@@ -47,6 +47,13 @@ namespace Assets.Scripts
 
         private void ChaseTarget()
         {
+            // // Double check to see if windows are alive - if not, change target to player
+            // if (target.name == "wood planks") {
+            //     if (window.Health <= 0) {
+            //         target = player.transform;
+            //         targetMask = LayerMask.GetMask("Player");
+            //     }
+            // }
             agent.SetDestination(target.position);
             animator.SetInteger("IsWalking", 1);
             animator.SetInteger("IsIdle", 0);
@@ -74,7 +81,7 @@ namespace Assets.Scripts
                         if (window.Health <= 0) {
                             target = player.transform;
                             targetMask = LayerMask.GetMask("Player");
-
+                            agent.autoTraverseOffMeshLink = true;
                             window = null;
                         }
                     }
@@ -129,7 +136,6 @@ namespace Assets.Scripts
         }
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("Starting OnTrigger");
             IBuildableItem buildableItem = other.GetComponent<IBuildableItem>();
             
             if(buildableItem != null)
@@ -139,7 +145,7 @@ namespace Assets.Scripts
                     window = buildableItem as BuildableItem;
                     target = window.transform;
                     targetMask = LayerMask.GetMask("Window");
-                    Debug.Log("Need to stop");
+                    agent.autoTraverseOffMeshLink = false;
                 }
             }
         }
