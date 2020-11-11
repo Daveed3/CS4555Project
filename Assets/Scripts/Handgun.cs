@@ -10,7 +10,8 @@ namespace Assets.Scripts
         public Animator bodyAnimator;
         public GameObject placeHolderPlayerArms;
         public GameObject cameraPlayerArms;
-       
+
+        public int Damage = 25;
         public int AmmunitionCount = 150;
         private bool _hasAmmunition = true;
 
@@ -27,7 +28,7 @@ namespace Assets.Scripts
 
         public override void OnUse()
         {
-            SimpleShoot script = GetComponent<SimpleShoot>();
+            HandgunShoot script = GetComponent<HandgunShoot>();
             script.enabled = true;
 
             placeHolderPlayerArms.SetActive(false);
@@ -41,7 +42,7 @@ namespace Assets.Scripts
 
         public override void OnPutAway()
         {
-            SimpleShoot script = GetComponent<SimpleShoot>();
+            HandgunShoot script = GetComponent<HandgunShoot>();
             script.enabled = false;
 
             placeHolderPlayerArms.SetActive(true);

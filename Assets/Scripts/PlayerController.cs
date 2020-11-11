@@ -54,8 +54,8 @@ namespace Assets.Scripts
             bodyAnimator = bodyAnimator.GetComponent<Animator>();
 
 
-            walkingMediumSFX.volume = .4f;
-            walkingFastSFX.volume = .4f;
+            walkingMediumSFX.volume = .05f;
+            walkingFastSFX.volume = .05f;
 
             ambientSFX.volume = .05f;
             ambientSFX.Play();
@@ -241,7 +241,7 @@ namespace Assets.Scripts
                 itemToPickup = item;
                 Hud.OpenMessagePanel($"Press F to pickup {item.Name}");
             }
-            else if(buildableItem != null && Player.EquippedItem.ItemName.Equals("hammer"))
+            else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer"))
             {
                 if ((buildableItem as BuildableItem).Health < 100)
                 {

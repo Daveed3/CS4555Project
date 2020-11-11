@@ -10,8 +10,9 @@ namespace Assets.Scripts
         public Player Player;
         public EnemyAI EnemyAI;
         public EnemyGenerator EnemyGenerator;
+        public AudioSource newRoundSFX;
 
-        
+
         // Use this for initialization
         void Start()
         {
@@ -33,6 +34,7 @@ namespace Assets.Scripts
                 }
                 else if (StartRounds && Round == 0)
                 {
+                    newRoundSFX.Play();
                     Round = 1;
                     Debug.Log($"It is now round {Round}");
                     yield return new WaitForSeconds(5);
@@ -41,6 +43,7 @@ namespace Assets.Scripts
                 }
                 else if (StartRounds && EnemyAI.deadEnemyCount == EnemyGenerator.enemyCount && !EnemyGenerator.spawnEnemies)
                 {
+                    newRoundSFX.Play();
                     Round += 1;
                     Debug.Log($"It is now round {Round}");
                     Debug.Log($"Dead enemy count {EnemyAI.deadEnemyCount}, total enemies allowed is {EnemyGenerator.enemyCount} - going to start a new round");
