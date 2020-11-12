@@ -87,10 +87,10 @@ namespace Assets.Scripts
                         window.OnDamaged(20);
                         if (window.Health <= 0)
                         {
+                            transform.position = target.position;
                             target = player.transform;
                             targetMask = LayerMask.GetMask("Player");
                             agent.autoTraverseOffMeshLink = true;
-
                             animator.SetTrigger("Jump");
                             window = null;                           
                         }
@@ -174,8 +174,8 @@ namespace Assets.Scripts
             IBuildableItem buildableItem = other.GetComponent<IBuildableItem>();
             if (buildableItem != null)
             {
-                window = null;
-                agent.autoTraverseOffMeshLink = false;
+                // window = null;
+                // agent.autoTraverseOffMeshLink = false;
                 SetMovementSpeed(speed);
             }
         }
