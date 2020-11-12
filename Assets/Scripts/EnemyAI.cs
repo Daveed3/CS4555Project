@@ -7,6 +7,7 @@ namespace Assets.Scripts
 {
     public class EnemyAI : MonoBehaviour
     {
+        public float speed = 0.5f;
         public NavMeshAgent agent;
         public Transform target;
         public LayerMask groundMask, targetMask;
@@ -26,8 +27,13 @@ namespace Assets.Scripts
         private bool isDead = false;
         bool hasSpawned = false;
 
-
         public static int deadEnemyCount;
+
+
+        static System.Random random = new System.Random();
+        // audio
+        public List<AudioSource> attackSounds;
+        public List<AudioSource> normalSounds;
 
         IEnumerator Start()
         {
@@ -43,6 +49,7 @@ namespace Assets.Scripts
         {
             target = GameObject.Find(target.name).transform;
             agent = GetComponent<NavMeshAgent>();
+            agent.speed = speed;
         }
 
         private void ChaseTarget()
@@ -54,7 +61,6 @@ namespace Assets.Scripts
 
         private void AttackTarget()
         {
-
             //Make sure enemy doesn't move while attacking
             agent.SetDestination(transform.position);
 
@@ -63,22 +69,34 @@ namespace Assets.Scripts
             if (!hasAttacked)
             {
                 //Attack code here (i.e. scratches)
+                AudioSource attackSound = attackSounds[random.Next(attackSounds.Count)];
+
+                attackSound.Play();
+
                 Debug.Log("Attacked");
                 animator.SetInteger("EnemyHasAttacked", 1);
                 hasAttacked = true;
-                if (target.name == "Player") {
+                if (target.name == "Player")
+                {
                     player.TakeDamage(20);
-                } else if (target.name == "wood planks") {
-                    if (window != null) {
+                }
+                else if (target.name.Contains("wood planks"))
+                {
+                    if (window != null)
+                    {
                         window.OnDamaged(20);
-                        if (window.Health <= 0) {
+                        if (window.Health <= 0)
+                        {
                             target = player.transform;
                             targetMask = LayerMask.GetMask("Player");
                             agent.autoTraverseOffMeshLink = true;
-                            window = null;
+
+                            animator.SetTrigger("Jump");
+                            window = null;                           
                         }
                     }
                 }
+
                 Invoke(nameof(ResetAttack), timeBetweenAttacks);
             }
         }
@@ -142,7 +160,29 @@ namespace Assets.Scripts
                     agent.autoTraverseOffMeshLink = false;
                     Debug.Log("Need to stop");
                 }
+                else
+                {
+                    SetMovementSpeed(0.67f);
+                    animator.SetTrigger("Jump");
+                    agent.autoTraverseOffMeshLink = true;
+                }
             }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            IBuildableItem buildableItem = other.GetComponent<IBuildableItem>();
+            if (buildableItem != null)
+            {
+                window = null;
+                agent.autoTraverseOffMeshLink = false;
+                SetMovementSpeed(speed);
+            }
+        }
+
+        public void SetMovementSpeed(float speed)
+        {
+            agent.speed = speed;
         }
 
         void OnDrawGizmosSelected()

@@ -5,6 +5,7 @@ namespace Assets.Scripts
 {
     public class RoundManager : MonoBehaviour
     {
+        public static int SecondsToStart = 10;
         public static int Round = 0;
         private bool StartRounds = false;
         public Player Player;
@@ -28,8 +29,8 @@ namespace Assets.Scripts
                 if (!StartRounds)
                 {
                     // give the player 60 seconds to explore before starting the rounds
-                    Debug.Log("Game is starting, wait 10 seconds...");
-                    yield return new WaitForSeconds(10);
+                    Debug.Log($"Game is starting, wait {SecondsToStart} seconds...");
+                    yield return new WaitForSeconds(SecondsToStart);
                     StartRounds = true;
                 }
                 else if (StartRounds && Round == 0)
@@ -53,6 +54,10 @@ namespace Assets.Scripts
                     EnemyAI.deadEnemyCount = 0;               
                     EnemyGenerator.enemyCount = 0;
                     EnemyAI.health += 10;
+                    if (EnemyAI.speed < 4)
+                    {
+                        EnemyAI.speed += 0.5f;
+                    }
                     EnemyGenerator.spawnLimit += 5;
                     EnemyGenerator.spawnEnemies = true;
                 }
