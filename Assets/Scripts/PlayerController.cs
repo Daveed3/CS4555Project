@@ -149,24 +149,6 @@ namespace Assets.Scripts
 
             controller.Move(velocity * Time.deltaTime);
 
-            if (Input.GetKeyDown(KeyCode.LeftControl) && !isCrouched)
-            {
-                Crouch();
-            }
-            else if (Input.GetKeyDown(KeyCode.LeftControl) && isCrouched)
-            {
-                ResetHeight();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Z) && !isProne)
-            {
-                Prone();
-            }
-            else if (Input.GetKeyDown(KeyCode.Z) && isProne)
-            {
-                ResetHeight();
-            }
-
             if (Input.GetKeyDown(KeyCode.LeftShift)) {
                 Run();
                 //Debug.Log("running");
@@ -182,46 +164,6 @@ namespace Assets.Scripts
                 placeholderArmAnimator.SetInteger("IsRunning", 0);
                 bodyAnimator.SetInteger("IsRunning", 0);
                 walkingFastSFX.Pause();
-            }
-
-
-        }
-
-        // reduce height to crouching height
-        void Crouch()
-        {
-            controller.height = crouchedHeight;
-            playerBody.transform.localScale -= new Vector3(0, 0.52f, 0);
-            isCrouched = true;
-        }
-
-        // reduce height to crawling height
-        void Prone()
-        {
-            controller.height = proneHeight;
-            playerBody.transform.localScale -= new Vector3(0, 0.85f, 0);
-            playerBody.transform.position -= new Vector3(0, 0.85f, 0);
-
-            //  playerBody.transform.localScale += new Vector3(0, 0, 1.2f);
-            isProne = true;
-        }
-
-        // reset height
-        void ResetHeight()
-        {
-            controller.height = originalPlayerHeight;
-
-            if (isCrouched)
-            {
-                playerBody.transform.localScale += new Vector3(0, 0.52f, 0);
-                isCrouched = false;
-            }
-            else if (isProne)
-            {
-                playerBody.transform.localScale += new Vector3(0, 0.85f, 0);
-                playerBody.transform.position += new Vector3(0, 0.85f, 0);
-                // playerBody.transform.localScale -= new Vector3(0, 0, 1.2f);
-                isProne = false;
             }
         }
 
@@ -239,7 +181,16 @@ namespace Assets.Scripts
             if (item != null)
             {
                 itemToPickup = item;
-                Hud.OpenMessagePanel($"Press F to pickup {item.Name}");
+
+                // display unique message if the item is ammunition and the player does not have enough score to purchase it
+                if (itemToPickup.Name.Equals("ammunition") && Player.Score < (itemToPickup as Ammunition).cost)
+                {
+                    Hud.OpenMessagePanel($"{(itemToPickup as Ammunition).Message}");
+                }
+                else
+                {
+                    Hud.OpenMessagePanel($"Press F to pick up {item.Name}");
+                } 
             }
             else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer"))
             {

@@ -30,6 +30,7 @@ namespace Assets.Scripts {
             }
             else if(shootingSFX.isPlaying)
             {
+                GetComponent<Animator>().SetBool("Fire", false);
                 shootingSFX.Stop();
             }
         }
@@ -64,7 +65,7 @@ namespace Assets.Scripts {
                 GameObject tempFlash = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
                 Destroy(tempFlash, 0.5f);
 
-                GetComponent<Animator>().SetTrigger("Fire");
+                GetComponent<Animator>().SetBool("Fire", true);
             }
            
         }
