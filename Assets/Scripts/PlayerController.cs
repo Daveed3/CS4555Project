@@ -111,7 +111,7 @@ namespace Assets.Scripts
                 velocity.y = -2f;
             }
 
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
             {
                // Debug.Log("walking");
                 armAnimator.SetInteger("IsWalking", 1);
