@@ -10,8 +10,10 @@ namespace Assets.Scripts
         public Animator bodyAnimator;
         public GameObject placeHolderPlayerArms;
         public GameObject cameraPlayerArms;
+        public AudioSource playerOnPickupRemark;
 
         public int Damage = 50;
+        public const int MAX_COUNT = 500;
         public int AmmunitionCount = 500;
         private bool _hasAmmunition = true;
 
@@ -69,6 +71,12 @@ namespace Assets.Scripts
             AmmunitionCount = 500;
             HasAmmunition = true;
             Debug.Log($"{Name} ammo is now {AmmunitionCount}");
+        }
+
+        public override void OnPickup()
+        {
+            playerOnPickupRemark.Play();
+            base.OnPickup();
         }
     }
 }

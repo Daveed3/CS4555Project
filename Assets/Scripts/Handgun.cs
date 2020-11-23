@@ -12,6 +12,7 @@ namespace Assets.Scripts
         public GameObject cameraPlayerArms;
 
         public int Damage = 25;
+        public const int MAX_COUNT = 150;
         public int AmmunitionCount = 150;
         private bool _hasAmmunition = true;
 

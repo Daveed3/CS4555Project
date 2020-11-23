@@ -9,18 +9,23 @@ namespace Assets.Scripts
         public Transform inventoryHUD;
 
         public static InventoryItem activeItem;
+        public AudioSource lowAmmoRemark;
+        public bool lowAmmoRemarkHasPlayed = false;
 
         // Use this for initialization
         void Start()
-        {         
-            
+        {
+
         }
 
         // Update is called once per frame
         void Update()
         {
-           if (Input.GetKeyDown(KeyCode.Alpha1))
-           {
+
+            MonitorAmmunition();
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
                 Debug.Log("pressed 1");
                 if (Inventory.Items[0] != null)
                 {
@@ -37,7 +42,7 @@ namespace Assets.Scripts
                     }
                 }
             }
-            else if(Input.GetKeyDown(KeyCode.Alpha2))
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 Debug.Log("pressed 2");
                 if (Inventory.Items[1] != null)
@@ -73,7 +78,7 @@ namespace Assets.Scripts
                     }
                 }
             }
-            else if(Input.GetKeyDown(KeyCode.Alpha4))
+            else if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 Debug.Log("pressed 4");
 
@@ -82,12 +87,53 @@ namespace Assets.Scripts
                     (Inventory.Items[3] as InventoryItem).OnUse();
                 }
             }
-            else if(Input.GetKeyDown(KeyCode.Alpha5))
+            else if (Input.GetKeyDown(KeyCode.Alpha5))
             {
                 Debug.Log("pressed 5");
                 if (Inventory.Items[4] != null)
                 {
 
+                }
+            }
+        }
+
+        private void MonitorAmmunition()
+        {
+            if (activeItem != null)
+            {
+                if (activeItem.ItemName.Equals("handgun"))
+                {
+                    Handgun weapon = activeItem as Handgun;
+
+                    if (weapon.AmmunitionCount < Handgun.MAX_COUNT * 0.15)
+                    {
+                        if (!lowAmmoRemarkHasPlayed)
+                        {
+                            lowAmmoRemark.Play();
+                            lowAmmoRemarkHasPlayed = true;
+                        }
+                    }
+                    else
+                    {
+                        lowAmmoRemarkHasPlayed = false;
+                    }
+                }
+                else if (activeItem.ItemName.Equals("assault rifle"))
+                {
+                    AssaultRifle weapon = activeItem as AssaultRifle;
+
+                    if (weapon.AmmunitionCount < AssaultRifle.MAX_COUNT * 0.15)
+                    {
+                        if (!lowAmmoRemarkHasPlayed)
+                        {
+                            lowAmmoRemark.Play();
+                            lowAmmoRemarkHasPlayed = true;
+                        }
+                    }
+                    else
+                    {
+                        lowAmmoRemarkHasPlayed = false;
+                    }
                 }
             }
         }

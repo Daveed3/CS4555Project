@@ -35,6 +35,8 @@ namespace Assets.Scripts
         public List<AudioSource> attackSounds;
         public List<AudioSource> normalSounds;
 
+        private const int NUM_OF_POSSIBLE_ATTACKS = 8;
+
         IEnumerator Start()
         {
             animator = GetComponent<Animator>();
@@ -74,8 +76,10 @@ namespace Assets.Scripts
                 attackSound.Play();
 
                 Debug.Log("Attacked");
-                animator.SetInteger("EnemyHasAttacked", 1);
+                animator.SetTrigger($"EnemyHasAttacked_{GetRandomAttack()}");
                 hasAttacked = true;
+
+
                 if (target.name == "Player")
                 {
                     player.TakeDamage(20);
@@ -103,7 +107,6 @@ namespace Assets.Scripts
 
         private void ResetAttack()
         {
-            animator.SetInteger("EnemyHasAttacked", 0);
             hasAttacked = false;
         }
 
@@ -193,6 +196,11 @@ namespace Assets.Scripts
             }
 
             Gizmos.DrawWireSphere(transform.position, attackRange);
+        }
+
+        private int GetRandomAttack()
+        {
+            return Random.Range(1, NUM_OF_POSSIBLE_ATTACKS + 1);
         }
     }
 }

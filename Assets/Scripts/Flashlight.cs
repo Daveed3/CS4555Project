@@ -6,6 +6,7 @@ namespace Assets.Scripts
     public class Flashlight : InventoryItem
     {
         private bool IsOn = false;
+        public AudioSource playerOnPickupRemark;
 
         public override void OnUse()
         {
@@ -29,7 +30,7 @@ namespace Assets.Scripts
         public override void OnPickup()
         {
             base.OnPickup();
-
+            playerOnPickupRemark.Play();
             gameObject.SetActive(true);
             transform.parent = parent.transform;
             transform.localPosition = PickupPosition;

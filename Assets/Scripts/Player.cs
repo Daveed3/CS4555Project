@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -10,6 +11,10 @@ namespace Assets.Scripts
         public static int Score = 0;
         public int KillCount = 0;
         public InventoryManager InventoryManager;
+
+        public List<AudioSource> gruntingSounds;
+        public AudioSource gruntSound;
+
         public InventoryItem EquippedItem
         {
             get
@@ -64,10 +69,23 @@ namespace Assets.Scripts
         public void TakeDamage(int damage)
         {
             Health -= damage;
+
+            if(!gruntSound.isPlaying)
+            {
+                gruntSound = GetRandomGrunt();
+                gruntSound.Play();
+
+            }
+
             if(Health <= 0)
             {
                 IsDead = true;
             }
+        }
+
+        private AudioSource GetRandomGrunt()
+        {
+            return gruntingSounds[Random.Range(0, gruntingSounds.Count)];
         }
     }
 }
