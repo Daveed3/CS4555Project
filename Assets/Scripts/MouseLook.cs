@@ -24,7 +24,7 @@ namespace Assets.Scripts
             // Time.deltaTime is the amount of time that has gone by since the last Update function was called
             // framerate independent
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * (5*mouseSensitivity) * Time.deltaTime;
 
             _xRotation -= mouseY;
             // constrain rotation / don't over rotate and look behind player
