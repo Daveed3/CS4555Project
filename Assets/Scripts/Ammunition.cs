@@ -6,13 +6,17 @@ namespace Assets.Scripts
     public class Ammunition : InventoryItem
     {
         public Player Player;
-        private readonly int _cost = 250;
-
+        public readonly int cost = 250;
+        public string Message;
+        public Ammunition()
+        {
+            Message = $"You need {cost} score to buy this";
+        }
         public override void OnPickup()
         {
-            if (Player.Score >= _cost)
+            if (Player.Score >= cost)
             {
-                Player.DecreaseScore(_cost);
+                Player.DecreaseScore(cost);
 
                 if (Inventory.Items[0] != null)
                 {

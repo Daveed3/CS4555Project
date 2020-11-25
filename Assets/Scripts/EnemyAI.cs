@@ -34,6 +34,7 @@ namespace Assets.Scripts
         // audio
         public List<AudioSource> attackSounds;
         public List<AudioSource> normalSounds;
+        private const int NUM_OF_POSSIBLE_ATTACKS = 8;
 
         IEnumerator Start()
         {
@@ -74,7 +75,7 @@ namespace Assets.Scripts
                 attackSound.Play();
 
                 Debug.Log("Attacked");
-                animator.SetInteger("EnemyHasAttacked", 1);
+                animator.SetTrigger($"EnemyHasAttacked_{GetRandomAttack()}");
                 hasAttacked = true;
                 if (target.name == "Player")
                 {
@@ -186,6 +187,10 @@ namespace Assets.Scripts
         public void SetMovementSpeed(float speed)
         {
             agent.speed = speed;
+        }
+        private int GetRandomAttack()
+        {
+            return Random.Range(1, NUM_OF_POSSIBLE_ATTACKS + 1);
         }
 
         void OnDrawGizmosSelected()

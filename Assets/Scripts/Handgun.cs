@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -10,8 +11,11 @@ namespace Assets.Scripts
         public Animator bodyAnimator;
         public GameObject placeHolderPlayerArms;
         public GameObject cameraPlayerArms;
+        public List<AudioSource> playerOnPickupRemarks;
+        public AudioSource pickupRemark;
 
         public int Damage = 25;
+        public const int MAX_COUNT = 150;
         public int AmmunitionCount = 150;
         private bool _hasAmmunition = true;
 
@@ -53,6 +57,15 @@ namespace Assets.Scripts
 
             base.OnPutAway();
         }
+        public override void OnPickup()
+        {
+            if (!pickupRemark.isPlaying)
+            {
+                pickupRemark = GetRandomPickupRemark();
+                pickupRemark.Play();
+            }
+            base.OnPickup();
+        }
 
         public void Shoot()
         {
@@ -68,6 +81,10 @@ namespace Assets.Scripts
             AmmunitionCount = 150;
             HasAmmunition = true;
             Debug.Log($"{Name} ammo is now {AmmunitionCount}");
+        }
+        private AudioSource GetRandomPickupRemark()
+        {
+            return playerOnPickupRemarks[Random.Range(0, playerOnPickupRemarks.Count)];
         }
     }
 }

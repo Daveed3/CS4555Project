@@ -239,7 +239,16 @@ namespace Assets.Scripts
             if (item != null)
             {
                 itemToPickup = item;
-                Hud.OpenMessagePanel($"Press F to pickup {item.Name}");
+
+                // display unique message if the item is ammunition and the player does not have enough score to purchase it
+                if (itemToPickup.Name.Equals("ammunition") && Player.Score < (itemToPickup as Ammunition).cost)
+                {
+                    Hud.OpenMessagePanel($"{(itemToPickup as Ammunition).Message}");
+                }
+                else
+                {
+                    Hud.OpenMessagePanel($"Press F to pick up {item.Name}");
+                } 
             }
             else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer"))
             {
