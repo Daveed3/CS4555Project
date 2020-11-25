@@ -43,7 +43,7 @@ namespace Assets.Scripts
                 mainMenuButton.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                PlayerPrefs.SetFloat("score", Player.Score);
+                PlayerPrefs.SetInt("score", Player.Score);
             }
         }
         public void backToMainMenu() {
