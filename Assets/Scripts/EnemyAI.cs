@@ -110,10 +110,10 @@ namespace Assets.Scripts
         public void TakeDamage(int damage)
         {
             Debug.Log("Alien took damage");
-            health -= damage;
-            player.IncreaseScore(true);
 
             if (health <= 0 && !isDead) {
+                //Make sure enemy stops moving after dying
+                agent.SetDestination(transform.position);
                 isDead = true;
                 deadEnemyCount += 1;
                 health = 0;
@@ -122,6 +122,9 @@ namespace Assets.Scripts
                 animator.SetInteger("IsWalking", 0);
                 animator.SetInteger("IsDead", 1);
                 Invoke(nameof(DestroyEnemy), 10f);
+            } else if (health > 0) {
+                health -= damage;
+                player.IncreaseScore(true);
             }
         }
 

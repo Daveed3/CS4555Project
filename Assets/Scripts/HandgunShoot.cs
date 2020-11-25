@@ -7,7 +7,7 @@ namespace Assets.Scripts {
     {
         public Handgun handgun;
         public float timeBetweenShots;
-        public float timeBetweenShooting;
+        public float nextFireTime;
         public float spread;
         public float range;
 
@@ -48,8 +48,9 @@ namespace Assets.Scripts {
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                if (handgun.HasAmmunition)
+                if (handgun.HasAmmunition && Time.time > nextFireTime)
                 {
+                    nextFireTime = Time.time + timeBetweenShots;
                     float x = Random.Range(-spread, spread);
                     float y = Random.Range(-spread, spread);
 
