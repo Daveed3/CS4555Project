@@ -73,7 +73,7 @@ namespace Assets.Scripts
             if(!gruntSound.isPlaying)
             {
                 gruntSound = GetRandomGrunt();
-                gruntSound.Play();
+                gruntSound.PlayDelayed(1.5f);
 
             }
 

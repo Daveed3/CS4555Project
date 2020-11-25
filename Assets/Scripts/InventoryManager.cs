@@ -10,7 +10,11 @@ namespace Assets.Scripts
 
         public static InventoryItem activeItem;
         public AudioSource lowAmmoRemark;
-        public bool lowAmmoRemarkHasPlayed = false;
+        public AudioSource outOfAmmoRemark;
+        public bool handgunLowAmmoRemarkHasPlayed = false;
+        public bool assaultRifleLowAmmoRemarkHasPlayed = false;
+        public bool handgunOutOfAmmoRemarkHasPlayed = false;
+        public bool assaultRifleOutOfAmmoRemarkHasPlayed = false;
 
         // Use this for initialization
         void Start()
@@ -105,34 +109,62 @@ namespace Assets.Scripts
                 {
                     Handgun weapon = activeItem as Handgun;
 
-                    if (weapon.AmmunitionCount < Handgun.MAX_COUNT * 0.15)
+                    if (weapon.AmmunitionCount < Handgun.MAX_COUNT * 0.30)
                     {
-                        if (!lowAmmoRemarkHasPlayed)
+                        if (!handgunLowAmmoRemarkHasPlayed)
                         {
                             lowAmmoRemark.Play();
-                            lowAmmoRemarkHasPlayed = true;
+                            handgunLowAmmoRemarkHasPlayed = true;
                         }
                     }
                     else
                     {
-                        lowAmmoRemarkHasPlayed = false;
+                        handgunLowAmmoRemarkHasPlayed = false;
+                    }
+
+                    if (weapon.AmmunitionCount == 0)
+                    {
+                        if (!handgunOutOfAmmoRemarkHasPlayed)
+                        {
+                            lowAmmoRemark.Stop();
+                            outOfAmmoRemark.Play();
+                            handgunOutOfAmmoRemarkHasPlayed = true;
+                        }
+                    }
+                    else
+                    {
+                        handgunOutOfAmmoRemarkHasPlayed = false;
                     }
                 }
                 else if (activeItem.ItemName.Equals("assault rifle"))
                 {
                     AssaultRifle weapon = activeItem as AssaultRifle;
 
-                    if (weapon.AmmunitionCount < AssaultRifle.MAX_COUNT * 0.15)
+                    if (weapon.AmmunitionCount < AssaultRifle.MAX_COUNT * 0.30)
                     {
-                        if (!lowAmmoRemarkHasPlayed)
+                        if (!assaultRifleLowAmmoRemarkHasPlayed)
                         {
                             lowAmmoRemark.Play();
-                            lowAmmoRemarkHasPlayed = true;
+                            assaultRifleLowAmmoRemarkHasPlayed = true;
                         }
                     }
                     else
                     {
-                        lowAmmoRemarkHasPlayed = false;
+                        assaultRifleLowAmmoRemarkHasPlayed = false;
+                    }
+
+                    if (weapon.AmmunitionCount == 0)
+                    {
+                        if (!assaultRifleOutOfAmmoRemarkHasPlayed)
+                        {
+                            lowAmmoRemark.Stop();
+                            outOfAmmoRemark.Play();
+                            assaultRifleOutOfAmmoRemarkHasPlayed = true;
+                        }
+                    }
+                    else
+                    {
+                        assaultRifleOutOfAmmoRemarkHasPlayed = false;
                     }
                 }
             }
