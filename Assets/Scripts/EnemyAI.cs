@@ -76,6 +76,8 @@ namespace Assets.Scripts
 
                 Debug.Log("Attacked");
                 animator.SetTrigger($"EnemyHasAttacked_{GetRandomAttack()}");
+                // animator.SetInteger("EnemyHasAttacked", 1); // was taken out from what I saw in Justine's latest  
+                
                 hasAttacked = true;
                 if (target.name == "Player")
                 {
