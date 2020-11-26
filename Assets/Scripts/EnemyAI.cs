@@ -34,6 +34,7 @@ namespace Assets.Scripts
         // audio
         public List<AudioSource> attackSounds;
         public List<AudioSource> normalSounds;
+        private const int NUM_OF_POSSIBLE_ATTACKS = 8;
 
         private const int NUM_OF_POSSIBLE_ATTACKS = 8;
 
@@ -77,6 +78,8 @@ namespace Assets.Scripts
 
                 Debug.Log("Attacked");
                 animator.SetTrigger($"EnemyHasAttacked_{GetRandomAttack()}");
+                // animator.SetInteger("EnemyHasAttacked", 1); // was taken out from what I saw in Justine's latest  
+                
                 hasAttacked = true;
 
 
@@ -113,10 +116,10 @@ namespace Assets.Scripts
         public void TakeDamage(int damage)
         {
             Debug.Log("Alien took damage");
-            health -= damage;
-            player.IncreaseScore(true);
 
             if (health <= 0 && !isDead) {
+                //Make sure enemy stops moving after dying
+                agent.SetDestination(transform.position);
                 isDead = true;
                 deadEnemyCount += 1;
                 health = 0;
@@ -125,6 +128,9 @@ namespace Assets.Scripts
                 animator.SetInteger("IsWalking", 0);
                 animator.SetInteger("IsDead", 1);
                 Invoke(nameof(DestroyEnemy), 10f);
+            } else if (health > 0) {
+                health -= damage;
+                player.IncreaseScore(true);
             }
         }
 
@@ -186,6 +192,10 @@ namespace Assets.Scripts
         public void SetMovementSpeed(float speed)
         {
             agent.speed = speed;
+        }
+        private int GetRandomAttack()
+        {
+            return Random.Range(1, NUM_OF_POSSIBLE_ATTACKS + 1);
         }
 
         void OnDrawGizmosSelected()

@@ -7,14 +7,11 @@ namespace Assets.Scripts
     {
         public Player Player;
         public readonly int cost = 250;
-
         public string Message;
-
         public Ammunition()
         {
             Message = $"You need {cost} score to buy this";
         }
-        
         public override void OnPickup()
         {
             if (Player.Score >= cost)

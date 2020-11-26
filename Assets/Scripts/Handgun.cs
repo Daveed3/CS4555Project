@@ -57,6 +57,15 @@ namespace Assets.Scripts
 
             base.OnPutAway();
         }
+        public override void OnPickup()
+        {
+            if (!pickupRemark.isPlaying)
+            {
+                pickupRemark = GetRandomPickupRemark();
+                pickupRemark.Play();
+            }
+            base.OnPickup();
+        }
 
         public override void OnPickup()
         {
@@ -83,7 +92,6 @@ namespace Assets.Scripts
             HasAmmunition = true;
             Debug.Log($"{Name} ammo is now {AmmunitionCount}");
         }
-
         private AudioSource GetRandomPickupRemark()
         {
             return playerOnPickupRemarks[Random.Range(0, playerOnPickupRemarks.Count)];
