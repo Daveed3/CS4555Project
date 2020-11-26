@@ -36,8 +36,6 @@ namespace Assets.Scripts
         public List<AudioSource> normalSounds;
         private const int NUM_OF_POSSIBLE_ATTACKS = 8;
 
-        private const int NUM_OF_POSSIBLE_ATTACKS = 8;
-
         IEnumerator Start()
         {
             animator = GetComponent<Animator>();
@@ -206,11 +204,6 @@ namespace Assets.Scripts
             }
 
             Gizmos.DrawWireSphere(transform.position, attackRange);
-        }
-
-        private int GetRandomAttack()
-        {
-            return Random.Range(1, NUM_OF_POSSIBLE_ATTACKS + 1);
         }
     }
 }

@@ -67,16 +67,6 @@ namespace Assets.Scripts
             base.OnPickup();
         }
 
-        public override void OnPickup()
-        {
-            if (!pickupRemark.isPlaying)
-            {
-                pickupRemark = GetRandomPickupRemark();
-                pickupRemark.Play();
-            }
-            base.OnPickup();
-        }
-
         public void Shoot()
         {
             if (HasAmmunition)
