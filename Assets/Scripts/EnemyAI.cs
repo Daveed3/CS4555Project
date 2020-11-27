@@ -35,6 +35,10 @@ namespace Assets.Scripts
         public List<AudioSource> attackSounds;
         public List<AudioSource> normalSounds;
         private const int NUM_OF_POSSIBLE_ATTACKS = 8;
+        private const int NUM_OF_POSSIBLE_DEATHS = 3;
+        private const int NUM_OF_POSSIBLE_RUNS = 2;
+
+        private int runNumber;
 
         IEnumerator Start()
         {
@@ -48,6 +52,8 @@ namespace Assets.Scripts
 
         private void Awake()
         {
+            runNumber = GetRandomRun();
+
             target = GameObject.Find(target.name).transform;
             agent = GetComponent<NavMeshAgent>();
             agent.speed = speed;
@@ -56,7 +62,14 @@ namespace Assets.Scripts
         private void ChaseTarget()
         {
             agent.SetDestination(target.position);
-            animator.SetInteger("IsWalking", 1);
+            if (speed > 2.5f)
+            {
+                animator.SetInteger($"IsRunning_{runNumber}", 1);
+            }
+            else
+            {
+                animator.SetInteger("IsWalking", 1);
+            }
             animator.SetInteger("IsIdle", 0);
         }
 
@@ -124,7 +137,8 @@ namespace Assets.Scripts
                 Debug.Log("alien is dead");
                 player.IncreaseKillCount();
                 animator.SetInteger("IsWalking", 0);
-                animator.SetInteger("IsDead", 1);
+                animator.SetInteger($"IsRunning_{runNumber}", 0);
+                animator.SetInteger($"IsDead_{GetRandomDeath()}", 1);
                 Invoke(nameof(DestroyEnemy), 10f);
             } else if (health > 0) {
                 health -= damage;
@@ -194,6 +208,16 @@ namespace Assets.Scripts
         private int GetRandomAttack()
         {
             return Random.Range(1, NUM_OF_POSSIBLE_ATTACKS + 1);
+        }
+
+        private int GetRandomRun()
+        {
+            return Random.Range(1, NUM_OF_POSSIBLE_RUNS + 1);
+        }
+
+        private int GetRandomDeath()
+        {
+            return Random.Range(1, NUM_OF_POSSIBLE_DEATHS + 1);
         }
 
         void OnDrawGizmosSelected()
