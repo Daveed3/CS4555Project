@@ -13,9 +13,17 @@ namespace Assets.Scripts
         public Animator armAnimator;
         public Animator placeholderArmAnimator;
         public Animator bodyAnimator;
-        public AudioSource walkingMediumSFX;
-        public AudioSource walkingFastSFX;
+
         public AudioSource ambientSFX;
+
+
+        public AudioSource walkingOutdoorMediumSFX;
+        public AudioSource walkingOutdoorFastSFX;
+        public AudioSource walkingIndoorMediumSFX;
+        public AudioSource walkingIndoorFastSFX;
+
+        private bool indoor = false;
+        private bool outdoor = false;
 
         public GameObject cameraPlayerArms;
         public GameObject placeHolderPlayerArms;
@@ -54,13 +62,6 @@ namespace Assets.Scripts
             armAnimator = armAnimator.GetComponent<Animator>();
             placeholderArmAnimator = placeholderArmAnimator.GetComponent<Animator>();
             bodyAnimator = bodyAnimator.GetComponent<Animator>();
-
-
-            walkingMediumSFX.volume = .05f;
-            walkingFastSFX.volume = .05f;
-
-            ambientSFX.volume = .05f;
-            ambientSFX.Play();
         }
 
       
@@ -68,7 +69,28 @@ namespace Assets.Scripts
         void Update()
         {
             ambientSFX.loop = true;
-            
+            Debug.Log($"indoor is {indoor} and outdoor is {outdoor}");
+            if (Physics.Raycast(groundCheck.transform.position, Vector3.down, out RaycastHit hit))
+            {
+                var floortag = hit.collider.gameObject.tag;
+                Debug.Log($"floor tag is {floortag}");
+                if (floortag == "Indoor")
+                {
+                    walkingOutdoorMediumSFX.Stop();
+                    walkingOutdoorFastSFX.Stop();
+                    outdoor = false;
+                    indoor = true;
+                }
+                else
+                {
+                    walkingIndoorMediumSFX.Stop();
+                    walkingIndoorFastSFX.Stop();
+                    outdoor = true;
+                    indoor = false;
+                }
+            }
+
+
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
                 GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
@@ -125,7 +147,20 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsWalking", 1);
                 placeholderArmAnimator.SetInteger("IsWalking", 1);
                 bodyAnimator.SetInteger("IsWalking", 1);
-                walkingMediumSFX.Play();
+                if(indoor)
+                {
+                    if (!walkingIndoorMediumSFX.isPlaying)
+                    {
+                        walkingIndoorMediumSFX.Play();
+                    }
+                }
+                else if(outdoor)
+                {
+                    if (!walkingOutdoorMediumSFX.isPlaying)
+                    {
+                        walkingOutdoorMediumSFX.Play();
+                    }
+                }
             }
             else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.D))
             {
@@ -133,7 +168,14 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsWalking", 0);
                 placeholderArmAnimator.SetInteger("IsWalking", 0);
                 bodyAnimator.SetInteger("IsWalking", 0);
-                walkingMediumSFX.Stop();
+                if (indoor)
+                {          
+                    walkingIndoorMediumSFX.Stop();                    
+                }
+                else if (outdoor)
+                {
+                    walkingOutdoorMediumSFX.Stop();
+                }
             }
 
             float x = Input.GetAxis("Horizontal");
@@ -148,8 +190,10 @@ namespace Assets.Scripts
             if (isGrounded && Input.GetButtonDown("Jump"))
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-                walkingFastSFX.Pause();
-                walkingMediumSFX.Pause();
+                walkingIndoorMediumSFX.Pause();
+                walkingIndoorFastSFX.Pause();
+                walkingOutdoorFastSFX.Pause();
+                walkingOutdoorMediumSFX.Pause();
             }
 
 
@@ -163,7 +207,14 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsRunning", 1);
                 placeholderArmAnimator.SetInteger("IsRunning", 1);
                 bodyAnimator.SetInteger("IsRunning", 1);
-                walkingFastSFX.Play();
+                if (indoor)
+                {
+                    walkingIndoorFastSFX.Play();
+                }
+                else if (outdoor)
+                {
+                    walkingOutdoorFastSFX.Play();
+                }
             }
             else if (Input.GetKeyUp(KeyCode.LeftShift)){
                 movementSpeed = movementSpeed / 2;
@@ -171,7 +222,14 @@ namespace Assets.Scripts
                 armAnimator.SetInteger("IsRunning", 0);
                 placeholderArmAnimator.SetInteger("IsRunning", 0);
                 bodyAnimator.SetInteger("IsRunning", 0);
-                walkingFastSFX.Pause();
+                if (indoor)
+                {
+                    walkingIndoorFastSFX.Stop();
+                }
+                else if (outdoor)
+                {
+                    walkingOutdoorFastSFX.Stop();
+                }
             }
         }
 
