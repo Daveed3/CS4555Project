@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -11,6 +12,7 @@ namespace Assets.Scripts
         public string ItemName;
         public int Health = 0;
         public Animator animator;
+        public Player player;
 
         public string Name
         {
@@ -52,7 +54,7 @@ namespace Assets.Scripts
             animator.SetInteger("Rebuild", 1);
 
             Health = 100;
-            //gameObject.SetActive(true);
+            player.IncreaseScore(HitEnemy: false, BuiltBarrier: true);
         }
     }
 }

@@ -15,6 +15,10 @@ namespace Assets.Scripts
         public List<AudioSource> gruntingSounds;
         public AudioSource gruntSound;
 
+        public List<AudioSource> playerDamagedSounds;
+        public AudioSource playerDamagedSound;
+        public List<AudioSource> playerRemarksOnAlien;
+
         public InventoryItem EquippedItem
         {
             get
@@ -45,12 +49,17 @@ namespace Assets.Scripts
             }
         }
 
-        public void IncreaseScore(bool HitEnemy)
+        public void IncreaseScore(bool HitEnemy = false, bool BuiltBarrier = false)
         {
             if(HitEnemy)
             {
                 Score += 15;
                 Debug.Log($"Score is {Score}");
+            }
+            else if(BuiltBarrier)
+            {
+                // rebuilt a barrier
+                Score += 10;
             }
         }
 
@@ -63,6 +72,13 @@ namespace Assets.Scripts
         public void IncreaseKillCount()
         {
             KillCount += 1;
+
+            // have the player say some random remark about the aliens/house every 8 kills
+            if (KillCount % 8 == 0)
+            {
+                GetRandomPlayerRemarkOnAliens().Play();
+            }
+
             Debug.Log($"Kill count is {KillCount}");
         }
 
@@ -74,7 +90,12 @@ namespace Assets.Scripts
             {
                 gruntSound = GetRandomGrunt();
                 gruntSound.PlayDelayed(1.5f);
+            }
 
+            if(!playerDamagedSound.isPlaying)
+            {
+                playerDamagedSound = GetRandomDamagedSound();
+                playerDamagedSound.PlayDelayed(1f);
             }
 
             if(Health <= 0)
@@ -86,6 +107,16 @@ namespace Assets.Scripts
         private AudioSource GetRandomGrunt()
         {
             return gruntingSounds[Random.Range(0, gruntingSounds.Count)];
+        }
+
+        private AudioSource GetRandomDamagedSound()
+        {
+            return playerDamagedSounds[Random.Range(0, playerDamagedSounds.Count)];
+        }
+
+        private AudioSource GetRandomPlayerRemarkOnAliens()
+        {
+            return playerRemarksOnAlien[Random.Range(0, playerRemarksOnAlien.Count)];
         }
     }
 }

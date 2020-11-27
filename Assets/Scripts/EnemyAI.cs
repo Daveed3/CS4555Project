@@ -34,11 +34,16 @@ namespace Assets.Scripts
         // audio
         public List<AudioSource> attackSounds;
         public List<AudioSource> normalSounds;
+
+        public List<AudioSource> hitBarrierSounds;
+        public AudioSource gunDamageSound;
+        public AudioSource hammerDamageSound;
+
         private const int NUM_OF_POSSIBLE_ATTACKS = 8;
         private const int NUM_OF_POSSIBLE_DEATHS = 3;
         private const int NUM_OF_POSSIBLE_RUNS = 2;
 
-        private int runNumber;
+        private int runAnimationNumber;
 
         IEnumerator Start()
         {
@@ -52,7 +57,7 @@ namespace Assets.Scripts
 
         private void Awake()
         {
-            runNumber = GetRandomRun();
+            runAnimationNumber = GetRandomAction(NUM_OF_POSSIBLE_RUNS);
 
             target = GameObject.Find(target.name).transform;
             agent = GetComponent<NavMeshAgent>();
@@ -64,7 +69,7 @@ namespace Assets.Scripts
             agent.SetDestination(target.position);
             if (speed > 2.5f)
             {
-                animator.SetInteger($"IsRunning_{runNumber}", 1);
+                animator.SetInteger($"IsRunning_{runAnimationNumber}", 1);
             }
             else
             {
@@ -88,8 +93,7 @@ namespace Assets.Scripts
                 attackSound.Play();
 
                 Debug.Log("Attacked");
-                animator.SetTrigger($"EnemyHasAttacked_{GetRandomAttack()}");
-                // animator.SetInteger("EnemyHasAttacked", 1); // was taken out from what I saw in Justine's latest  
+                animator.SetTrigger($"EnemyHasAttacked_{GetRandomAction(NUM_OF_POSSIBLE_ATTACKS)}");
                 
                 hasAttacked = true;
 
@@ -103,6 +107,7 @@ namespace Assets.Scripts
                     if (window != null)
                     {
                         window.OnDamaged(20);
+                        hitBarrierSounds[random.Next(hitBarrierSounds.Count)].Play();
                         if (window.Health <= 0)
                         {
                             transform.position = target.position;
@@ -137,12 +142,21 @@ namespace Assets.Scripts
                 Debug.Log("alien is dead");
                 player.IncreaseKillCount();
                 animator.SetInteger("IsWalking", 0);
-                animator.SetInteger($"IsRunning_{runNumber}", 0);
-                animator.SetInteger($"IsDead_{GetRandomDeath()}", 1);
+                animator.SetInteger($"IsRunning_{runAnimationNumber}", 0);
+                animator.SetInteger($"IsDead_{GetRandomAction(NUM_OF_POSSIBLE_DEATHS)}", 1);
                 Invoke(nameof(DestroyEnemy), 10f);
             } else if (health > 0) {
                 health -= damage;
-                player.IncreaseScore(true);
+
+                if (player.EquippedItem.ItemName.Equals("handgun") || player.EquippedItem.ItemName.Equals("assault rifle")) {
+                    gunDamageSound.Play();
+                }
+                else
+                {
+                    hammerDamageSound.Play();
+                }
+
+                player.IncreaseScore(HitEnemy: true, BuiltBarrier: false);
             }
         }
 
@@ -205,19 +219,10 @@ namespace Assets.Scripts
         {
             agent.speed = speed;
         }
-        private int GetRandomAttack()
-        {
-            return Random.Range(1, NUM_OF_POSSIBLE_ATTACKS + 1);
-        }
 
-        private int GetRandomRun()
+        private int GetRandomAction(int max)
         {
-            return Random.Range(1, NUM_OF_POSSIBLE_RUNS + 1);
-        }
-
-        private int GetRandomDeath()
-        {
-            return Random.Range(1, NUM_OF_POSSIBLE_DEATHS + 1);
+            return Random.Range(1, max + 1);
         }
 
         void OnDrawGizmosSelected()

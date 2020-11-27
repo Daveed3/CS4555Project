@@ -45,6 +45,8 @@ namespace Assets.Scripts
         private IInventoryItem itemToPickup = null;
         private IBuildableItem itemToBuild = null;
 
+        public List<AudioSource> buildingBarrierRemarks;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -100,6 +102,12 @@ namespace Assets.Scripts
                 {
                     (Player.EquippedItem as Hammer).BuildBarrier();
                     (itemToBuild as BuildableItem).OnRebuild();
+
+                    // 1/5 chance of making a remark when building windows
+                    if (Random.Range(1, 6) == 3)
+                    {
+                        buildingBarrierRemarks[Random.Range(0, buildingBarrierRemarks.Count)].Play();                   
+                    }
                 }
                 itemToBuild = null;
             }
@@ -168,11 +176,9 @@ namespace Assets.Scripts
         }
 
         // run speed
-        void Run() {
+        private void Run() {
             movementSpeed = movementSpeed * 2 ;
         }
-
-
 
         private void OnTriggerEnter(Collider other)
         {

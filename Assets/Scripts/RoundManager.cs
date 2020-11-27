@@ -12,7 +12,7 @@ namespace Assets.Scripts
         public EnemyAI EnemyAI;
         public EnemyGenerator EnemyGenerator;
         public AudioSource newRoundSFX;
-
+        public AudioSource introRemark;
 
         // Use this for initialization
         void Start()
@@ -30,6 +30,7 @@ namespace Assets.Scripts
                 {
                     // give the player 60 seconds to explore before starting the rounds
                     Debug.Log($"Game is starting, wait {SecondsToStart} seconds...");
+                    introRemark.PlayDelayed(5);
                     yield return new WaitForSeconds(SecondsToStart);
                     StartRounds = true;
                 }
