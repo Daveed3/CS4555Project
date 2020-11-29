@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 9886a6da66469484694f725ffff59f50
+timeCreated: 1515817345
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Book_01
+    100002: Book_02
+    100004: Book_03
+    100006: Book_04
+    100008: Book_05
+    100010: Box
+    100012: File_Stack
+    100014: Manila_Folder
+    100016: Newspaper
+    100018: Open_Book
+    100020: //RootNode
+    400000: Book_01
+    400002: Book_02
+    400004: Book_03
+    400006: Book_04
+    400008: Book_05
+    400010: Box
+    400012: File_Stack
+    400014: Manila_Folder
+    400016: Newspaper
+    400018: Open_Book
+    400020: //RootNode
+    2300000: Book_01
+    2300002: Book_02
+    2300004: Book_03
+    2300006: Book_04
+    2300008: Book_05
+    2300010: Box
+    2300012: File_Stack
+    2300014: Manila_Folder
+    2300016: Newspaper
+    2300018: Open_Book
+    3300000: Book_01
+    3300002: Book_02
+    3300004: Book_03
+    3300006: Book_04
+    3300008: Book_05
+    3300010: Box
+    3300012: File_Stack
+    3300014: Manila_Folder
+    3300016: Newspaper
+    3300018: Open_Book
+    4300000: Open_Book
+    4300002: File_Stack
+    4300004: Manila_Folder
+    4300006: Newspaper
+    4300008: Box
+    4300010: Book_02
+    4300012: Book_01
+    4300014: Book_04
+    4300016: Book_03
+    4300018: Book_05
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BOOKS_Shd
+    second: {fileID: 2100000, guid: 611d1fd338f04ce4cbceb4e8b98d25d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paper_shd
+    second: {fileID: 2100000, guid: bc3d124158664cf4a8123ed91c7cf20d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
