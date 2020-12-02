@@ -7,7 +7,7 @@ namespace Assets.Scripts
 {
     public class EnemyAI : MonoBehaviour
     {
-        public float speed = 0.5f;
+        public static float speed = 0.8f;
         public NavMeshAgent agent;
         public Transform target;
         public LayerMask groundMask, targetMask;
@@ -62,6 +62,7 @@ namespace Assets.Scripts
             target = GameObject.Find(target.name).transform;
             agent = GetComponent<NavMeshAgent>();
             agent.speed = speed;
+            Debug.Log($"agent speed is {speed}");
         }
 
         private void ChaseTarget()

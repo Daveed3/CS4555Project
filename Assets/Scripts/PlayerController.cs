@@ -69,11 +69,9 @@ namespace Assets.Scripts
         void Update()
         {
             ambientSFX.loop = true;
-            Debug.Log($"indoor is {indoor} and outdoor is {outdoor}");
             if (Physics.Raycast(groundCheck.transform.position, Vector3.down, out RaycastHit hit))
             {
                 var floortag = hit.collider.gameObject.tag;
-                Debug.Log($"floor tag is {floortag}");
                 if (floortag == "Indoor")
                 {
                     walkingOutdoorMediumSFX.Stop();
@@ -95,21 +93,26 @@ namespace Assets.Scripts
             {
                 GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
 
-                if(itemToPickup.Name.Equals("assault rifle"))
+                if (itemToPickup.Name.Equals("assault rifle"))
                 {
                     Inventory.AddItem(itemToPickup, 0);
                 }
                 else if (itemToPickup.Name.Equals("handgun"))
                 {
-                    Inventory.AddItem(itemToPickup, 1);                                                
+                    Inventory.AddItem(itemToPickup, 1);
                 }
-                else if(itemToPickup.Name.Equals("hammer"))
+                else if (itemToPickup.Name.Equals("hammer"))
                 {
                     Inventory.AddItem(itemToPickup, 2);
                 }
-                else if(itemToPickup.Name.Equals("flashlight"))
+                else if (itemToPickup.Name.Equals("flashlight"))
                 {
-                    Inventory.AddItem(itemToPickup, 3);                
+                    Inventory.AddItem(itemToPickup, 3);
+                }
+                else if (itemToPickup.Name.Equals("building material") && (Inventory.Items[4] == null) && Player.Score >= (itemToPickup as BuildingMaterial).cost)
+                {
+                    Debug.Log("adding for first time");
+                    Inventory.AddItem(itemToPickup, 4);                       
                 }
                 // do not need to add ammunition to inventory
                 // instead, increase the ammo count in the handgun class
@@ -251,12 +254,16 @@ namespace Assets.Scripts
                 {
                     Hud.OpenMessagePanel($"{(itemToPickup as Ammunition).Message}");
                 }
+                else if (itemToPickup.Name.Equals("building material") && Player.Score < (itemToPickup as BuildingMaterial).cost)
+                {
+                    Hud.OpenMessagePanel($"{(itemToPickup as BuildingMaterial).Message}");
+                }
                 else
                 {
                     Hud.OpenMessagePanel($"Press F to pick up {item.Name}");
                 } 
             }
-            else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer"))
+            else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer") && (Inventory.Items[4] as BuildingMaterial).MaterialCount > 0)
             {
                 if ((buildableItem as BuildableItem).Health < 100)
                 {

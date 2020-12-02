@@ -55,9 +55,12 @@ namespace Assets.Scripts
                     EnemyAI.deadEnemyCount = 0;               
                     EnemyGenerator.enemyCount = 0;
                     EnemyAI.health += 10;
-                    if (EnemyAI.speed < 4)
+                    if (EnemyAI.speed < 4.5)
                     {
-                        EnemyAI.speed += 0.5f;
+                        Debug.Log($"setting speed from {EnemyAI.speed}");
+                        EnemyAI.speed += 0.20f;
+
+                        Debug.Log($"to {EnemyAI.speed}");
                     }
                     EnemyGenerator.spawnLimit += 5;
                     EnemyGenerator.spawnEnemies = true;

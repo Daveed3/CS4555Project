@@ -8,7 +8,7 @@ namespace Assets.Scripts
     {
         public int Health = 100;
         public static bool IsDead = false;
-        public static int Score = 0;
+        public static int Score = 100;
         public int KillCount = 0;
         public InventoryManager InventoryManager;
 

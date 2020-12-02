@@ -91,14 +91,6 @@ namespace Assets.Scripts
                     (Inventory.Items[3] as InventoryItem).OnUse();
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                Debug.Log("pressed 5");
-                if (Inventory.Items[4] != null)
-                {
-
-                }
-            }
         }
 
         private void MonitorAmmunition()

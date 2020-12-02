@@ -54,6 +54,7 @@ namespace Assets.Scripts
             animator.SetInteger("Rebuild", 1);
 
             Health = 100;
+            (Inventory.Items[4] as BuildingMaterial).OnUse();
             player.IncreaseScore(HitEnemy: false, BuiltBarrier: true);
         }
     }
