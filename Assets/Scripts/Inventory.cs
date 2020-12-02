@@ -21,6 +21,11 @@ namespace Assets.Scripts
                 if (collider.enabled)
                 {
                     collider.enabled = false;
+                    // don't hide the collider for building materials since the player should be able to pick more up in the future
+                    if (index != 4)
+                    {
+                        collider.enabled = false;
+                    }
                     Items[index] = item;
                     item.OnPickup();
                     itemCount++;
