@@ -18,6 +18,7 @@ namespace Assets.Scripts
         }
         public override void OnPickup()
         {
+            Debug.Log("in material pickup function");
             if (Player.Score >= cost)
             {
                 Player.DecreaseScore(cost);

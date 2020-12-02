@@ -14,6 +14,7 @@ namespace Assets.Scripts
         }
         public override void OnPickup()
         {
+            Debug.Log("in ammo pickup function");
             if (Player.Score >= cost)
             {
                 Player.DecreaseScore(cost);

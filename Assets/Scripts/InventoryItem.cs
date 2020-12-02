@@ -64,7 +64,10 @@ namespace Assets.Scripts
 
         public virtual void OnPickup()
         {
-            gameObject.GetComponentInChildren<Light>().enabled = false;
+            // turn off the last light after picking up item
+            Light[] lights = gameObject.GetComponentsInChildren<Light>();
+            lights[lights.Length - 1].enabled = false;
+
             gameObject.SetActive(false);
         }
     }

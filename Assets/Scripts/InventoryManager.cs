@@ -16,6 +16,11 @@ namespace Assets.Scripts
         public bool handgunOutOfAmmoRemarkHasPlayed = false;
         public bool assaultRifleOutOfAmmoRemarkHasPlayed = false;
 
+        public Text hangunAmmunition;
+        public Text assaultRifleAmmunition;
+        public Text buildingMaterialCount;
+
+
         // Use this for initialization
         void Start()
         {
@@ -27,6 +32,7 @@ namespace Assets.Scripts
         {
 
             MonitorAmmunition();
+            UpdateInventoryUI();
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -93,6 +99,26 @@ namespace Assets.Scripts
             }
         }
 
+        private void UpdateInventoryUI()
+        {
+            if (Inventory.Items[0] != null)
+            {
+                AssaultRifle assaultRifle = Inventory.Items[0] as AssaultRifle;
+                assaultRifleAmmunition.text = $"{assaultRifle.AmmunitionCount}/{AssaultRifle.MAX_COUNT}";
+            }
+
+            if (Inventory.Items[1] != null)
+            {
+                Handgun handgun = Inventory.Items[1] as Handgun;
+                hangunAmmunition.text = $"{handgun.AmmunitionCount}/{Handgun.MAX_COUNT}";
+            }
+
+            if (Inventory.Items[4] != null)
+            {
+                BuildingMaterial buildingMaterial = Inventory.Items[4] as BuildingMaterial;
+                buildingMaterialCount.text = $"{buildingMaterial.MaterialCount}/{BuildingMaterial.MAX_COUNT}";
+            }
+        }
         private void MonitorAmmunition()
         {
             if (activeItem != null)
