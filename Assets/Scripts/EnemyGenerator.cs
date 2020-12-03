@@ -22,21 +22,7 @@ namespace Assets.Scripts
         public List<GameObject> spawnLocations;
 
         // list of enemy spawn positions located around the map
-        // will need to change these once we have the environment set
-        List<EnemySpawnLocation> enemySpawns = new List<EnemySpawnLocation>()
-    {
-        
-        // new EnemySpawnLocation(38.21f, 8.827f, -24.7f),
-        // new EnemySpawnLocation(69.21f, 8.827f, -17.46f),
-        // new EnemySpawnLocation(56.58f, 8.827f, -5.27f),
-        // new EnemySpawnLocation(43.1f, 8.827f, 27f),
-        // new EnemySpawnLocation(58.3f, 8.827f, 19.66f),
-        // new EnemySpawnLocation(27.4f, 8.827f, -2.5f),
-        // new EnemySpawnLocation(32.1f, 8.827f, -45.1f),
-        // new EnemySpawnLocation(94.72f, 8.827f, -16.8f),
-        // new EnemySpawnLocation(86.62f, 8.827f, 16.63f),
-        // new EnemySpawnLocation(66.2f, 8.827f, 28.08f)
-    };
+        List<EnemySpawnLocation> enemySpawns = new List<EnemySpawnLocation>();
 
         List<GameObject> enemies = new List<GameObject>();
 
@@ -63,7 +49,19 @@ namespace Assets.Scripts
             {
                 if (spawnEnemies)
                 {
-                    EnemySpawnLocation spawnPosition = enemySpawns[random.Next(enemySpawns.Count)];
+                    EnemySpawnLocation spawnPosition;
+                    if (RoundManager.Round < 4)
+                    {
+                        // there are 4 in-house alien spawns (located in the last 4 positions in the list) 
+                        // before round 4, only spawn aliens outside
+                        spawnPosition = enemySpawns[random.Next(enemySpawns.Count - 4)];
+
+                    }
+                    else
+                    {
+                        // on and after round 4 start spawning aliens indoor
+                        spawnPosition = enemySpawns[random.Next(enemySpawns.Count)];
+                    }
                     // Debug.Log(spawnPosition.X + " " + spawnPosition.Y + " " + spawnPosition.Z);
                     GameObject newEnemy = Instantiate(enemies[random.Next(enemies.Count)]);
                     EnemyAI enemy = newEnemy.GetComponent<EnemyAI>();

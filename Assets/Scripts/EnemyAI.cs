@@ -144,6 +144,9 @@ namespace Assets.Scripts
                 player.IncreaseKillCount();
                 animator.SetInteger("IsWalking", 0);
                 animator.SetInteger($"IsRunning_{runAnimationNumber}", 0);
+                gameObject.GetComponent<BoxCollider>().enabled = false; // turn off alien BoxColliders when they die
+                gameObject.GetComponent<NavMeshAgent>().enabled = false; // turn off alien NavMeshAgent when they die
+
                 animator.SetInteger($"IsDead_{GetRandomAction(NUM_OF_POSSIBLE_DEATHS)}", 1);
                 Invoke(nameof(DestroyEnemy), 10f);
             } else if (health > 0) {
