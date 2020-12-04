@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -8,6 +9,10 @@ namespace Assets.Scripts
         public Player Player;
         public readonly int cost = 250;
         public string Message;
+
+        public List<AudioSource> pickupAmmoRemarks;
+        public AudioSource pickupRemark;
+
         public Ammunition()
         {
             Message = $"You need {cost} score to buy this";
@@ -18,6 +23,12 @@ namespace Assets.Scripts
             if (Player.Score >= cost)
             {
                 Player.DecreaseScore(cost);
+
+                if (!pickupRemark.isPlaying)
+                {
+                    pickupRemark = pickupAmmoRemarks[Random.Range(0, pickupAmmoRemarks.Count)];
+                    AudioManager.CheckAndPlayAudio(pickupRemark);
+                }
 
                 if (Inventory.Items[0] != null)
                 {

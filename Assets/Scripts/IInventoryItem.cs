@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -8,6 +9,8 @@ namespace Assets.Scripts
     {
         string Name { get; set; }
         Sprite Image { get; set; }
+        List<AudioSource> PlayerOnPickUpRemarks { get; set; }
+
         void OnPickup();
     }
 

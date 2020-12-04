@@ -76,7 +76,7 @@ namespace Assets.Scripts
             // have the player say some random remark about the aliens/house every 8 kills
             if (KillCount % 8 == 0)
             {
-                GetRandomPlayerRemarkOnAliens().Play();
+                AudioManager.CheckAndPlayAudio(GetRandomPlayerRemarkOnAliens());
             }
 
             Debug.Log($"Kill count is {KillCount}");

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -9,7 +10,7 @@ namespace Assets.Scripts
         public Vector3 PickupRotation;
         public GameObject parent;
         public string ItemName;
-
+        public List<AudioSource> OnPickUpRemarks;
         public Sprite spriteImage;
 
         public Sprite Image
@@ -34,6 +35,18 @@ namespace Assets.Scripts
             set
             {
                 ItemName = value;
+            }
+        }
+
+        public List<AudioSource> PlayerOnPickUpRemarks
+        {
+            get
+            {
+                return OnPickUpRemarks;
+            }
+            set
+            {
+                OnPickUpRemarks = value;
             }
         }
 
@@ -69,6 +82,13 @@ namespace Assets.Scripts
             lights[lights.Length - 1].enabled = false;
 
             gameObject.SetActive(false);
+
+            AudioManager.CheckAndPlayAudio(GetRandomPickupRemark());
+        }
+
+        private AudioSource GetRandomPickupRemark()
+        {
+            return OnPickUpRemarks[Random.Range(0, OnPickUpRemarks.Count)];
         }
     }
 }

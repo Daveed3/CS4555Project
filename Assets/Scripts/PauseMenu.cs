@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.Confined;
+        AudioListener.pause = true; // pause all audio
         // Cursor.visible = true;
     }
 
@@ -55,6 +56,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        AudioListener.pause = false; // play all audio
         // Cursor.visible = false; 
     }
 
@@ -63,6 +65,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Loading Main Menu");
         Time.timeScale = 1f;
+        AudioListener.pause = false; // play all audio
         SceneManager.LoadScene("Main Menu");
     }
 

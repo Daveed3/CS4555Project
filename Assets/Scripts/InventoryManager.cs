@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -11,10 +12,13 @@ namespace Assets.Scripts
         public static InventoryItem activeItem;
         public AudioSource lowAmmoRemark;
         public AudioSource outOfAmmoRemark;
+        public List<AudioSource> lowMaterialsRemarks;
+
         public bool handgunLowAmmoRemarkHasPlayed = false;
         public bool assaultRifleLowAmmoRemarkHasPlayed = false;
         public bool handgunOutOfAmmoRemarkHasPlayed = false;
         public bool assaultRifleOutOfAmmoRemarkHasPlayed = false;
+        public bool lowMaterialRemarkHasPlayed = false;
 
         public Text hangunAmmunition;
         public Text assaultRifleAmmunition;
@@ -32,6 +36,7 @@ namespace Assets.Scripts
         {
 
             MonitorAmmunition();
+            MonitorMaterials();
             UpdateInventoryUI();
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -131,7 +136,7 @@ namespace Assets.Scripts
                     {
                         if (!handgunLowAmmoRemarkHasPlayed)
                         {
-                            lowAmmoRemark.Play();
+                            AudioManager.CheckAndPlayAudio(lowAmmoRemark);
                             handgunLowAmmoRemarkHasPlayed = true;
                         }
                     }
@@ -145,7 +150,7 @@ namespace Assets.Scripts
                         if (!handgunOutOfAmmoRemarkHasPlayed)
                         {
                             lowAmmoRemark.Stop();
-                            outOfAmmoRemark.Play();
+                            AudioManager.CheckAndPlayAudio(outOfAmmoRemark);
                             handgunOutOfAmmoRemarkHasPlayed = true;
                         }
                     }
@@ -162,7 +167,7 @@ namespace Assets.Scripts
                     {
                         if (!assaultRifleLowAmmoRemarkHasPlayed)
                         {
-                            lowAmmoRemark.Play();
+                            AudioManager.CheckAndPlayAudio(lowAmmoRemark);
                             assaultRifleLowAmmoRemarkHasPlayed = true;
                         }
                     }
@@ -176,7 +181,7 @@ namespace Assets.Scripts
                         if (!assaultRifleOutOfAmmoRemarkHasPlayed)
                         {
                             lowAmmoRemark.Stop();
-                            outOfAmmoRemark.Play();
+                            AudioManager.CheckAndPlayAudio(outOfAmmoRemark);
                             assaultRifleOutOfAmmoRemarkHasPlayed = true;
                         }
                     }
@@ -184,6 +189,28 @@ namespace Assets.Scripts
                     {
                         assaultRifleOutOfAmmoRemarkHasPlayed = false;
                     }
+                }
+            }
+        }
+
+        // CHECK THE CURRENT COUNT OF BUILDING MATERIALS AND PLAY AN AUDIO CLIP IF THE MATERIALS ARE AT OR LESS 10% CAPACITY
+        public void MonitorMaterials()
+        {
+            if(Inventory.Items[4] != null)
+            {
+                BuildingMaterial mats = Inventory.Items[4] as BuildingMaterial;
+
+                if(mats.MaterialCount <= BuildingMaterial.MAX_COUNT * 0.10)
+                {
+                    if (!lowMaterialRemarkHasPlayed)
+                    {
+                        AudioManager.CheckAndPlayAudio(lowMaterialsRemarks[Random.Range(0, lowMaterialsRemarks.Count)]);
+                        lowMaterialRemarkHasPlayed = true;
+                    }
+                }
+                else
+                {
+                    lowMaterialRemarkHasPlayed = false;
                 }
             }
         }

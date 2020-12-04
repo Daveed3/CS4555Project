@@ -28,6 +28,7 @@ namespace Assets.Scripts {
         public Transform casingExitLocation;
         public Animator armAnimator;
         public AudioSource shootingSFX;
+        public AudioSource emptyGunshot;
 
         void Start()
         {
@@ -76,6 +77,13 @@ namespace Assets.Scripts {
                     Destroy(tempFlash, 0.5f);
 
                     GetComponent<Animator>().SetTrigger("Fire");
+                }
+                else if(!handgun.HasAmmunition && Time.time > nextFireTime)
+                {
+                    if (!emptyGunshot.isPlaying)
+                    {
+                        emptyGunshot.Play();
+                    }
                 }
                 Invoke("Shoot", timeBetweenShots);
             }

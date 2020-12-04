@@ -28,7 +28,7 @@ namespace Assets.Scripts
             {
                 GameObject.Find("Main Camera").GetComponent<MouseLook>().enabled = false;
                 GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
-                GameObject.Find("Spot Light").GetComponent<MouseLook>().enabled = false;
+               // GameObject.Find("Spot Light").GetComponent<MouseLook>().enabled = false;
                 foreach (Transform child in GameObject.Find("Enemy").transform) {
                     if (child.gameObject.tag == "Enemy") {
                         child.transform.position = new Vector3(0,0,0);

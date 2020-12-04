@@ -34,7 +34,7 @@ namespace Assets.Scripts
         // audio
         public List<AudioSource> attackSounds;
         public List<AudioSource> normalSounds;
-
+        public AudioSource alienSound;
         public List<AudioSource> hitBarrierSounds;
         public AudioSource gunDamageSound;
         public AudioSource hammerDamageSound;
@@ -45,6 +45,9 @@ namespace Assets.Scripts
 
         private int runAnimationNumber;
 
+
+        public AudioSource walkSFX;
+        public AudioSource runSFX;
         IEnumerator Start()
         {
             animator = GetComponent<Animator>();
@@ -70,12 +73,21 @@ namespace Assets.Scripts
             agent.SetDestination(target.position);
             if (speed > 2.5f)
             {
+                if (!runSFX.isPlaying)
+                {
+                    runSFX.Play();
+                }
                 animator.SetInteger($"IsRunning_{runAnimationNumber}", 1);
             }
             else
             {
+                if (!walkSFX.isPlaying)
+                {
+                    walkSFX.Play();
+                }
                 animator.SetInteger("IsWalking", 1);
             }
+
             animator.SetInteger("IsIdle", 0);
         }
 
@@ -83,6 +95,8 @@ namespace Assets.Scripts
         {
             //Make sure enemy doesn't move while attacking
             agent.SetDestination(transform.position);
+            walkSFX.Stop();
+            runSFX.Stop();
 
             transform.LookAt(target);
 
@@ -137,6 +151,10 @@ namespace Assets.Scripts
             if (health <= 0 && !isDead) {
                 //Make sure enemy stops moving after dying
                 agent.SetDestination(transform.position);
+                walkSFX.Stop();
+                runSFX.Stop();
+                alienSound.Stop();
+
                 isDead = true;
                 deadEnemyCount += 1;
                 health = 0;
@@ -177,6 +195,17 @@ namespace Assets.Scripts
                 isInAttackRange = Physics.CheckSphere(transform.position, attackRange, targetMask);
 
                 ChaseTarget();
+
+                // 1/20 chance of making a sound
+                if (Random.Range(1, 21) == 3)
+                {
+                    if (!alienSound.isPlaying)
+                    {
+                        alienSound = normalSounds[Random.Range(0, normalSounds.Count)];
+                        alienSound.Play();
+
+                    }
+                }
 
                 if (isInAttackRange)
                 {

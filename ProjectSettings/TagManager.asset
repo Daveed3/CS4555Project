@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Indoor
   - Outdoor
+  - PlayerVoiceAudio
   layers:
   - Default
   - TransparentFX

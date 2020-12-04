@@ -21,6 +21,7 @@ namespace Assets.Scripts {
         public GameObject muzzleFlash;
         public GameObject bulletHoleGraphic;
         public AudioSource shootingSFX;
+        public AudioSource emptyGunshot;
 
         private void Update()
         {
@@ -66,6 +67,14 @@ namespace Assets.Scripts {
                 Destroy(tempFlash, 0.5f);
 
                 GetComponent<Animator>().SetBool("Fire", true);
+            }
+
+            else
+            {
+                if(!emptyGunshot.isPlaying)
+                {
+                    emptyGunshot.Play();
+                }
             }
            
         }

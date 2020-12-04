@@ -91,8 +91,6 @@ namespace Assets.Scripts
 
             if (Input.GetKeyDown(KeyCode.F) && itemToPickup != null)
             {
-                GameObject inventoryItem = (itemToPickup as MonoBehaviour).gameObject;
-
                 if (itemToPickup.Name.Equals("assault rifle"))
                 {
                     Inventory.AddItem(itemToPickup, 0);
@@ -131,7 +129,7 @@ namespace Assets.Scripts
                     // 1/5 chance of making a remark when building windows
                     if (Random.Range(1, 6) == 3)
                     {
-                        buildingBarrierRemarks[Random.Range(0, buildingBarrierRemarks.Count)].Play();                   
+                        AudioManager.CheckAndPlayAudio(buildingBarrierRemarks[Random.Range(0, buildingBarrierRemarks.Count)]);                   
                     }
                 }
                 itemToBuild = null;
@@ -263,7 +261,7 @@ namespace Assets.Scripts
                     Hud.OpenMessagePanel($"Press F to pick up {item.Name}");
                 } 
             }
-            else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer") && (Inventory.Items[4] as BuildingMaterial).MaterialCount > 0)
+            else if(buildableItem != null && Player.EquippedItem != null && Player.EquippedItem.ItemName.Equals("hammer") && Inventory.Items[4] != null && (Inventory.Items[4] as BuildingMaterial).MaterialCount > 0)
             {
                 if ((buildableItem as BuildableItem).Health < 100)
                 {

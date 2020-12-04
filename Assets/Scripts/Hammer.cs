@@ -11,7 +11,6 @@ namespace Assets.Scripts
         public GameObject placeHolderPlayerArms;
         public GameObject cameraPlayerArms;
         public AudioSource buildBarrierSFX;
-        public AudioSource playerOnPickupRemark;
 
         public override void OnUse()
         {
@@ -45,12 +44,6 @@ namespace Assets.Scripts
             placeholderArmAnimator.SetInteger("HoldingHammer", 0);
 
             base.OnPutAway();
-        }
-
-        public override void OnPickup()
-        {
-            playerOnPickupRemark.Play();
-            base.OnPickup();
         }
     }
 }

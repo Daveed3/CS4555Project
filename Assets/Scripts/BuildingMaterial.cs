@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 namespace Assets.Scripts
 {
@@ -11,6 +12,8 @@ namespace Assets.Scripts
 
         public const int MAX_COUNT = 25;
         public int MaterialCount = 25;
+        public List<AudioSource> pickupRemarks;
+        public AudioSource pickupRemark;
 
         public BuildingMaterial()
         {
@@ -21,6 +24,12 @@ namespace Assets.Scripts
             Debug.Log("in material pickup function");
             if (Player.Score >= cost)
             {
+                if (!pickupRemark.isPlaying)
+                {
+                    pickupRemark = pickupRemarks[Random.Range(0, pickupRemarks.Count)];
+                    AudioManager.CheckAndPlayAudio(pickupRemark);
+                }
+
                 Player.DecreaseScore(cost);
                 MaterialCount = MAX_COUNT;
                 Debug.Log("pixked up mats");
