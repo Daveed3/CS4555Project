@@ -43,11 +43,12 @@ namespace Assets.Scripts
                 mainMenuButton.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                PlayerPrefs.SetFloat("score", Player.Score);
+                PlayerPrefs.SetInt("score", Player.TotalScore);
+                Debug.Log("updated Score " + Player.TotalScore);
             }
         }
         public void backToMainMenu() {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
     }

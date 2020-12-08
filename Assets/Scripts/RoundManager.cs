@@ -5,7 +5,7 @@ namespace Assets.Scripts
 {
     public class RoundManager : MonoBehaviour
     {
-        public static int SecondsToStart = 10;
+        public static int SecondsToStart = 20;
         public static int Round = 0;
         private bool StartRounds = false;
         public Player Player;

@@ -474,7 +474,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\t\n\tCREDITS:\n\t\n\tBuried Underground Team:  | House3D Modeling:\n\t\tJustine
     West\t\t\t\tKristhian Marentes\n\t\tPeter Gatsby\t\t        | Voice Actor:\n\t\tDavid
-    San\t\t          Austin Smith\n\t\n\tUnity Assets:\n\t\tIn House - ..."
+    San\t\t          Austin Smith\n\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2b5cbf289794e4b4c979b390ed9b697a, type: 2}
   m_sharedMaterial: {fileID: 1912339613829323517, guid: 2b5cbf289794e4b4c979b390ed9b697a,
@@ -545,12 +545,12 @@ MonoBehaviour:
   m_margin: {x: -133.9187, y: -18.174683, z: -2057.9133, w: -1198.8158}
   m_textInfo:
     textComponent: {fileID: 174818243}
-    characterCount: 206
+    characterCount: 174
     spriteCount: 0
-    spaceCount: 66
-    wordCount: 24
+    spaceCount: 57
+    wordCount: 19
     linkCount: 0
-    lineCount: 10
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

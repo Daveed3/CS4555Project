@@ -9,6 +9,7 @@ namespace Assets.Scripts
         public int Health = 100;
         public static bool IsDead = false;
         public static int Score = 100;
+        public static int TotalScore = 0;
         public int KillCount = 0;
         public InventoryManager InventoryManager;
 
@@ -54,12 +55,14 @@ namespace Assets.Scripts
             if(HitEnemy)
             {
                 Score += 15;
+                TotalScore += 15;
                 Debug.Log($"Score is {Score}");
             }
             else if(BuiltBarrier)
             {
                 // rebuilt a barrier
                 Score += 10;
+                TotalScore += 10;
             }
         }
 

@@ -7,7 +7,7 @@ namespace Assets.Scripts
 {
     public class EnemyAI : MonoBehaviour
     {
-        public static float speed = 0.8f;
+        public static float speed = 1.0f;
         public NavMeshAgent agent;
         public Transform target;
         public LayerMask groundMask, targetMask;

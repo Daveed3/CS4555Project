@@ -52,6 +52,7 @@ namespace Assets.Scripts
 
             armAnimator.SetInteger("HoldingHandgun", 0);
             placeholderArmAnimator.SetInteger("HoldingHandgun", 0);
+            // armAnimator.SetTrigger("ShootHandgun",);
 
             base.OnPutAway();
         }

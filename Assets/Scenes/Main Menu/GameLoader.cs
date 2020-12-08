@@ -29,7 +29,7 @@ public class GameLoader : MonoBehaviour
     public void MainMenuScreen()
     {
         // Testing names with scores, so deleting on purpose rn. Comment out later
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
 
 
         // Want to do a for each loop, but something isn't working
@@ -127,36 +127,45 @@ public class GameLoader : MonoBehaviour
     public void LeaderboardVars(bool isOn)
     {
         leaderboard.SetActive(isOn);
-        // Get current score
-        // Have to use score = PlayerPrefs.GetFloat("score") to get the score
-        int score = PlayerPrefs.GetInt("score", 0);
-        string playerName = PlayerPrefs.GetString("playerName", "Player");
-
-        // Compare scores
-        for (int i = 0; i < recordedScores; i++)
-        {
-            if (score > TopScores[i])
-            {
-                int temp = TopScores[i];
-                string tempName = TopScoreNames[i];
-
-                TopScores[i] = score;
-                TopScoreNames[i] = playerName;
-
-                score = temp;
-                playerName = tempName;
+        
+        if (isOn) {
+            // Get current score
+            // Have to use score = PlayerPrefs.GetFloat("score") to get the score
+            int score = PlayerPrefs.GetInt("score", 0);
+            string playerName = PlayerPrefs.GetString("playerName", "Player");
+            if (playerName.Trim() == "") {
+                playerName = "Player";
             }
-        }
 
-        // Set text to scores of the players
-        textMPLeaderboard.text = getScores();
+            if (playerName != TopScoreNames[0] && score != TopScores[0]) {
+                // Compare scores
+                for (int i = 0; i < recordedScores; i++)
+                {
+                    if (score > TopScores[i])
+                    {
+                        int temp = TopScores[i];
+                        string tempName = TopScoreNames[i];
 
+                        TopScores[i] = score;
+                        TopScoreNames[i] = playerName;
 
-        // Save scores
-        for (int i = 0; i < recordedScores; i++)
-        {
-            PlayerPrefs.SetInt("score" + i, TopScores[i]);
-            PlayerPrefs.SetString("name" + i, TopScoreNames[i]);
+                        score = temp;
+                        playerName = tempName;
+                    }
+                }
+
+                // Set text to scores of the players
+                textMPLeaderboard.text = getScores();
+
+                // Save scores
+                for (int i = 0; i < recordedScores; i++)
+                {
+                    PlayerPrefs.SetInt("score" + i, TopScores[i]);
+                    PlayerPrefs.SetString("name" + i, TopScoreNames[i]);
+                }
+
+            }
+
         }
 
     }
@@ -173,10 +182,10 @@ public class GameLoader : MonoBehaviour
         return scores;
     }
 
-    public void resetScores()
-    {
-        PlayerPrefs.DeleteKey("score");
-    }
+    // public void resetScores()
+    // {
+    //     PlayerPrefs.DeleteKey("score");
+    // }
 
 
     public void Awake()

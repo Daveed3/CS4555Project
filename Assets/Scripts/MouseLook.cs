@@ -6,7 +6,7 @@ namespace Assets.Scripts
 {
     public class MouseLook : MonoBehaviour
     {
-        public float mouseSensitivity = 500f;
+        public float mouseSensitivity = 100f;
         public Transform playerBody;
 
         private float _xRotation = 0f;
@@ -24,7 +24,7 @@ namespace Assets.Scripts
             // Time.deltaTime is the amount of time that has gone by since the last Update function was called
             // framerate independent
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * (5*mouseSensitivity) * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * (1*mouseSensitivity) * Time.deltaTime;
 
             _xRotation -= mouseY;
             // constrain rotation / don't over rotate and look behind player

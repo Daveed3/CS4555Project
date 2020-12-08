@@ -17,6 +17,7 @@ namespace Assets.Scripts
         public const int MAX_COUNT = 500;
         public int AmmunitionCount = 500;
         private bool _hasAmmunition = true;
+        public AudioSource shootingSFX;
 
         public bool HasAmmunition
         {
@@ -55,6 +56,7 @@ namespace Assets.Scripts
             armAnimator.SetInteger("HoldingAssaultRifle", 0);
             placeholderArmAnimator.SetInteger("HoldingAssaultRifle", 0);
 
+            shootingSFX.Stop();
             base.OnPutAway();
         }
 
